@@ -22,7 +22,8 @@
 - 採手動 workflow_dispatch 的 `use_saved_content` boolean（預設 false），只在明確選用時略過 Supabase 拉取與快照回寫；一般 push 與後台發布仍沿用原流程，無自動吞錯。
 - 本次選用快照 generatedAt 為 `2026-09-17T06:30:56.105Z`；圖片沿用現有 prebuild 的 bundled assets fallback。未改內容、登入或資料库。
 - 主方案使用明確救援開關，優點是此次可恢復靜態前台且未來正常發布不受影響；限制為內容新鮮度及後台不可用。備援為恢復 Supabase 後再正常重建，需管理帳號處理。無新增服務或費用。
-- 分支 `codex/snapshot-rescue`；workflow 設定改動沿用已通過的路徑回歸測試，完成後在 main 重跑既有基本、建置、前台檢查。以 `[skip ci]` 推送救援開關後只手動觸發一次，避免普通 push 的資料庫失敗流程重複執行。
+- 遠端 CI 首輪 149 passed、30 skipped、1 failed：WebKit mobile 行事曆快速換週期望 9/28 但收到 9/21，已重跑原工作，不能當成通過。救援流程另加入 Chrome＋WebKit 的完整前台測試，必須通過才會部署，後台留在原 CI。
+- 分支 `codex/snapshot-rescue`／`codex/rescue-frontend-gate`；workflow 設定改動沿用已通過的路徑回歸測試，完成後在 main 重跑既有基本、建置、前台檢查。以 `[skip ci]` 推送救援開關後只手動觸發一次，避免普通 push 的資料庫失敗流程重複執行。
 
 ## 這一輪在做什麼
 使用者看過 Next.js 重建版後認為線條太生硬、與柔和漸層背景不搭，決定大改版。

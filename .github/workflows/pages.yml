@@ -54,6 +54,12 @@ jobs:
         run: npm run build
       - name: Verify custom-domain asset and navigation paths
         run: node --test tests/export/custom-domain.test.mjs
+      - name: Install browsers for saved-content rescue verification
+        if: ${{ inputs.use_saved_content }}
+        run: npx playwright install --with-deps chromium webkit
+      - name: Verify the public site before saved-content rescue
+        if: ${{ inputs.use_saved_content }}
+        run: npx playwright test tests/visual --workers=2
       - run: touch out/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
