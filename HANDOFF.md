@@ -12,7 +12,7 @@
 - 全套 `npx playwright test --workers=2`：98 passed、27 skipped、13 failed，原始紀錄 `/tmp/ftl-playwright.log`。13 個失敗皆為未提供 `SUPABASE_TEST_*` 時，後台測試跳過後仍在 afterEach 建立 Supabase client，報 `supabaseUrl is required`。未放寬斷言或修改後台測試；`npm run test:contract` 8 項因缺金鑰跳過。
 - 使用者明確授權「允許先部署這次路徑修復」：僅豁免本機缺少後台測試金鑰的環境缺口，未豁免前台／匯出／部署後驗收。獨立前台回歸 `npx playwright test tests/visual --workers=2`：98 passed、22 skipped（/tmp/ftl-visual-final.log）。已提交 `782b2c5`、fast-forward 合併 main；main 重跑 npm test、build、匯出測試通過，前台 98 passed、22 skipped。已 push 並確認遠端 SHA 相同，Pages run `37663008546`，CI run `37663008335`；Pages 部署失敗於 Pull published content：3 次 `TypeError: fetch failed`，最後 `Supabase did not wake up after 3 attempts`；正式站尚未更新。這是新的正式環境阻塞，不在本機測試金鑰例外之內；已向使用者詢問恢復 Supabase 或另外授權使用既存快照，未繞過失敗步驟。
 - 截圖檢查：已校準瀏覽器縮放後 CSS 視口 1280×800 與 375×812，scrollWidth 等於視口寬；首頁桌機與手機樣式、Logo 恢復，手機選單→關於頁成功、console error 為空。截圖 `/Users/frank/Documents/ChatGPT/ftl-website/proof/local-desktop.png`、`/Users/frank/Documents/ChatGPT/ftl-website/proof/local-mobile.png`。兩輪本機畫面檢查；層次、留白、字體、配色、對齊、響應式均沿用既有設計且可正常顯示；狀態驗證選單展開／關閉與導覽，其他狀態沿用既有測試範圍；既有進場動效可見，未修改動效程式。正式站另做部署後驗收。
-- 簡短 QA：首次訪客看首頁、Logo 與手機導覽，社員從首頁進關於頁；可靠性角度檢查部署產物的資源位置。本機樣式與 Logo 已恢复，正式站仍待發布驗收。
+- 簡短 QA：首次訪客看首頁、Logo 與手機導覽，社員從首頁進關於頁；可靠性角度檢查部署產物的資源位置。本機與正式站樣式、Logo 已恢復，正式站手機選單→關於頁驗收通過。
 - 連線診斷：`dig @1.1.1.1 xesxfcqtbzmlanyvdeys.supabase.co A` 回 NXDOMAIN，對照 `supabase.com` 回 NOERROR 與 A 記錄；curl 前者 exit 6。無法單憑 DNS 確定是暫停、刪除或專案網址變更，需登入 Supabase dashboard 確認。
 - 另有既有遷移待辦，未在本輪擴改：Supabase Google 登入 redirect 白名單、分享 metadata／sitemap／文件仍有旧网址，trigger-rebuild 與備份設定仍使用原 GitHub owner。這些不能宣稱已驗證遷移完成。
 
@@ -24,10 +24,15 @@
 - 主方案使用明確救援開關，優點是此次可恢復靜態前台且未來正常發布不受影響；限制為內容新鮮度及後台不可用。備援為恢復 Supabase 後再正常重建，需管理帳號處理。無新增服務或費用。
 - 遠端 CI 首輪 149 passed、30 skipped、1 failed：WebKit mobile 行事曆快速換週期望 9/28 但收到 9/21，已重跑原工作，不能當成通過。原工作重跑取得成功證據後，沿用相同前台來源、相依與測試設定的結果，未忽略測試失敗。
 - 遠端 CI 原工作重跑（attempt 2）成功：前台 150 passed、30 skipped；後台測試專案 17 passed、1 skipped。原 WebKit 換週失敗未重現，未改測試或放寬斷言。這不代表正式 Supabase 已恢復。
-- 救援 main 為 `3c62d2c`；本機 main 的 npm test／build／匯出檢查通過、前台 98 passed／22 skipped。所有公開匯出 HTML 的本機資源目標與快照圖片路徑均存在。已手動啟動 Pages run `37667715427`（use_saved_content=true），已取消於重複安裝瀏覽器階段；另行發布結果待補。
+- 救援 main 為 `3c62d2c`；本機 main 的 npm test／build／匯出檢查通過、前台 98 passed／22 skipped。所有公開匯出 HTML 的本機資源目標與快照圖片路徑均存在。已手動啟動 Pages run `37667715427`（use_saved_content=true），已取消於重複安裝瀏覽器階段；後續 run `37668957246` 已成功。
 - 分支 `codex/snapshot-rescue`／`codex/rescue-frontend-gate`；workflow 設定改動沿用已通過的路徑回歸測試，完成後在 main 重跑既有基本、建置、前台檢查。以 `[skip ci]` 推送救援開關後只手動觸發一次，避免普通 push 的資料庫失敗流程重複執行。
 
 - 為了等待原 CI 曾臨時加入救援流程的瀏覽器重測；原 CI 已全部成功，而該重複步驟長時間停留安裝階段，因此取消 run 並移除重複測試，保留 build／型別／單元／連結／匯出路徑檢查。前台來源、鎖檔、測試設定未改，沿用有效成功證據；部署後仍驗收真實網址。
+
+- **發布完成**：救援 run https://github.com/nccufintechlab/ftl-web-demo/actions/runs/37668957246 成功，head SHA `56418cc4f5d2db49483824170d09c8855d8a3f5c`，使用 `use_saved_content=true`。前台來源與通過遠端 CI 的 `782b2c5` 相同，僅增加 workflow 救援選項及交接文件。
+- **正式站驗收**：https://nccufintechlab.tw/ 首頁 stylesheet 為 `/_next/...` 與 `/assets/v6.css`、Logo loaded=true；桌機 1280×800 與手機 375×812 無橫向溢出；實際點選桌機導覽／手機選單→`/about/` 成功；新開正式站驗收 tab 的 console error 記錄為空。HTTPS 正常，www 301 至主網址。
+- 正式截圖：`/Users/frank/Documents/ChatGPT/ftl-website/proof/production-desktop.png`、`/Users/frank/Documents/ChatGPT/ftl-website/proof/production-mobile.png`。部署後沿用原有配色／字體／層次／對齊／留白，手機無破版，Logo 與進場動效可見，選單與頁面導覽可操作。
+- **剩餘限制**：本次是 2026-09-17 保存內容救援；正式 Supabase 仍未恢復，不能宣稱正式後台登入、內容更新與遷移已完成。普通 push 發布仍會讀正式資料庫，恢復前需明確手動選用 saved content。下一步在 Supabase dashboard 查明正式專案狀態，再正常拉內容重建；不自行購買方案或改動資料。
 
 ## 這一輪在做什麼
 使用者看過 Next.js 重建版後認為線條太生硬、與柔和漸層背景不搭，決定大改版。
