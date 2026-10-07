@@ -1,5 +1,19 @@
 # HANDOFF — Glass V6 改版
 
+## 本輪狀態 — 2026-10-08 自訂網域資源路徑修復
+
+- 目標：`https://nccufintechlab.tw/` 恢復既有首頁、圖片、樣式、導覽；repo 已移至 `nccufintechlab/ftl-web-demo`。
+- 工作區：`/Users/frank/Documents/ChatGPT/ftl-website/site`，分支 `codex/custom-domain-path`，來源 `727ffd6`。外層工作区原為空 repo，未覆蓋任何既有修改。
+- 根因：Pages workflow 仍以 `NEXT_PUBLIC_BASE_PATH=/ftl-web-demo` 建置，新網域卻從 `/` 提供匯出檔案。
+- 修正：正式 workflow 改空 basePath，CI 同步建置根路徑；新增 `tests/export/custom-domain.test.mjs`，驗證實際匯出首頁／關於頁的本機資源與導覽目標都存在，兩個 workflow 建置後執行此檢查。未改版型、內容、資料庫或登入權限。
+- 紅綠證據：旧 basePath build 後執行新測試，因 `/ftl-web-demo/assets/ftl-logo.png` 不存在而 exit 1；根路徑重新 build 後同測試 exit 0。
+- 環境：Node 24.5.0、npm 11.5.1，`npm ci` 依鎖檔安裝；Chromium 1243 已安裝。本機靜態預覽 `127.0.0.1:4178`。
+- `npm test`：型別／lint／連結檢查與 35 個單元測試通過；lint 有 6 個既有 warnings。`npm run build` 成功，匯出路徑測試通過。
+- 全套 `npx playwright test --workers=2`：98 passed、27 skipped、13 failed，原始紀錄 `/tmp/ftl-playwright.log`。13 個失敗皆為未提供 `SUPABASE_TEST_*` 時，後台測試跳過後仍在 afterEach 建立 Supabase client，報 `supabaseUrl is required`。未放寬斷言或修改後台測試；`npm run test:contract` 8 項因缺金鑰跳過。
+- 使用者明確授權「允許先部署這次路徑修復」：僅豁免本機缺少後台測試金鑰的環境缺口，未豁免前台／匯出／部署後驗收。獨立前台回歸 `npx playwright test tests/visual --workers=2`：98 passed、22 skipped（/tmp/ftl-visual-final.log）。下一步合併 main、重測、push 並追蹤正式站驗收。
+- 簡短 QA：首次訪客看首頁、Logo 與手機導覽，社員從首頁進關於頁；可靠性角度檢查部署產物的資源位置。本機樣式與 Logo 已恢复，正式站仍待發布驗收。
+- 另有既有遷移待辦，未在本輪擴改：Supabase Google 登入 redirect 白名單、分享 metadata／sitemap／文件仍有旧网址，trigger-rebuild 與備份設定仍使用原 GitHub owner。這些不能宣稱已驗證遷移完成。
+
 ## 這一輪在做什麼
 使用者看過 Next.js 重建版後認為線條太生硬、與柔和漸層背景不搭，決定大改版。
 設計決策全部在 `docs/specs/2026-09-12-glass-v6-redesign-design.md`，本檔只寫交接與驗收。

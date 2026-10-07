@@ -15,7 +15,8 @@ jobs:
           node-version: 24
       - run: npm install --no-audit --no-fund
       - run: npm test
-      - run: NEXT_PUBLIC_BASE_PATH=/ftl-web-demo npm run build
+      - run: npm run build
+      - run: node --test tests/export/custom-domain.test.mjs
       - run: npx playwright install --with-deps chromium webkit
       - name: Visual + admin E2E (admin uses the Supabase test project)
         env:
