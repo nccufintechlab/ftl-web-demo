@@ -16,6 +16,14 @@
 - 連線診斷：`dig @1.1.1.1 xesxfcqtbzmlanyvdeys.supabase.co A` 回 NXDOMAIN，對照 `supabase.com` 回 NOERROR 與 A 記錄；curl 前者 exit 6。無法單憑 DNS 確定是暫停、刪除或專案網址變更，需登入 Supabase dashboard 確認。
 - 另有既有遷移待辦，未在本輪擴改：Supabase Google 登入 redirect 白名單、分享 metadata／sitemap／文件仍有旧网址，trigger-rebuild 與備份設定仍使用原 GitHub owner。這些不能宣稱已驗證遷移完成。
 
+## 救援發布授權 — 2026-10-08
+
+- 使用者確認「沒錯」：允許先用 GitHub 保存內容上線，接受內容可能較舊、後台仍待資料庫恢復。
+- 採手動 workflow_dispatch 的 `use_saved_content` boolean（預設 false），只在明確選用時略過 Supabase 拉取與快照回寫；一般 push 與後台發布仍沿用原流程，無自動吞錯。
+- 本次選用快照 generatedAt 為 `2026-09-17T06:30:56.105Z`；圖片沿用現有 prebuild 的 bundled assets fallback。未改內容、登入或資料库。
+- 主方案使用明確救援開關，優點是此次可恢復靜態前台且未來正常發布不受影響；限制為內容新鮮度及後台不可用。備援為恢復 Supabase 後再正常重建，需管理帳號處理。無新增服務或費用。
+- 分支 `codex/snapshot-rescue`；workflow 設定改動沿用已通過的路徑回歸測試，完成後在 main 重跑既有基本、建置、前台檢查。以 `[skip ci]` 推送救援開關後只手動觸發一次，避免普通 push 的資料庫失敗流程重複執行。
+
 ## 這一輪在做什麼
 使用者看過 Next.js 重建版後認為線條太生硬、與柔和漸層背景不搭，決定大改版。
 設計決策全部在 `docs/specs/2026-09-12-glass-v6-redesign-design.md`，本檔只寫交接與驗收。

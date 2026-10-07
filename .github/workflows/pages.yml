@@ -7,6 +7,12 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      use_saved_content:
+        description: "Emergency deploy: use committed content and bundled images without Supabase"
+        type: boolean
+        default: false
+        required: false
   repository_dispatch:
     types: [content-updated]
 
@@ -31,6 +37,7 @@ jobs:
           node-version: 24
       - run: npm install --no-audit --no-fund
       - name: Pull published content from Supabase
+        if: ${{ !inputs.use_saved_content }}
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
@@ -52,6 +59,7 @@ jobs:
         with:
           path: out
       - name: Commit refreshed snapshot
+        if: ${{ !inputs.use_saved_content }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
