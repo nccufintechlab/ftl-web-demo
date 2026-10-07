@@ -22,8 +22,12 @@
 - 採手動 workflow_dispatch 的 `use_saved_content` boolean（預設 false），只在明確選用時略過 Supabase 拉取與快照回寫；一般 push 與後台發布仍沿用原流程，無自動吞錯。
 - 本次選用快照 generatedAt 為 `2026-09-17T06:30:56.105Z`；圖片沿用現有 prebuild 的 bundled assets fallback。未改內容、登入或資料库。
 - 主方案使用明確救援開關，優點是此次可恢復靜態前台且未來正常發布不受影響；限制為內容新鮮度及後台不可用。備援為恢復 Supabase 後再正常重建，需管理帳號處理。無新增服務或費用。
-- 遠端 CI 首輪 149 passed、30 skipped、1 failed：WebKit mobile 行事曆快速換週期望 9/28 但收到 9/21，已重跑原工作，不能當成通過。救援流程另加入 Chrome＋WebKit 的完整前台測試，必須通過才會部署，後台留在原 CI。
+- 遠端 CI 首輪 149 passed、30 skipped、1 failed：WebKit mobile 行事曆快速換週期望 9/28 但收到 9/21，已重跑原工作，不能當成通過。原工作重跑取得成功證據後，沿用相同前台來源、相依與測試設定的結果，未忽略測試失敗。
+- 遠端 CI 原工作重跑（attempt 2）成功：前台 150 passed、30 skipped；後台測試專案 17 passed、1 skipped。原 WebKit 換週失敗未重現，未改測試或放寬斷言。這不代表正式 Supabase 已恢復。
+- 救援 main 為 `3c62d2c`；本機 main 的 npm test／build／匯出檢查通過、前台 98 passed／22 skipped。所有公開匯出 HTML 的本機資源目標與快照圖片路徑均存在。已手動啟動 Pages run `37667715427`（use_saved_content=true），已取消於重複安裝瀏覽器階段；另行發布結果待補。
 - 分支 `codex/snapshot-rescue`／`codex/rescue-frontend-gate`；workflow 設定改動沿用已通過的路徑回歸測試，完成後在 main 重跑既有基本、建置、前台檢查。以 `[skip ci]` 推送救援開關後只手動觸發一次，避免普通 push 的資料庫失敗流程重複執行。
+
+- 為了等待原 CI 曾臨時加入救援流程的瀏覽器重測；原 CI 已全部成功，而該重複步驟長時間停留安裝階段，因此取消 run 並移除重複測試，保留 build／型別／單元／連結／匯出路徑檢查。前台來源、鎖檔、測試設定未改，沿用有效成功證據；部署後仍驗收真實網址。
 
 ## 這一輪在做什麼
 使用者看過 Next.js 重建版後認為線條太生硬、與柔和漸層背景不搭，決定大改版。
