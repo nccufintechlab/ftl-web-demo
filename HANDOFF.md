@@ -10,8 +10,10 @@
 - 環境：Node 24.5.0、npm 11.5.1，`npm ci` 依鎖檔安裝；Chromium 1243 已安裝。本機靜態預覽 `127.0.0.1:4178`。
 - `npm test`：型別／lint／連結檢查與 35 個單元測試通過；lint 有 6 個既有 warnings。`npm run build` 成功，匯出路徑測試通過。
 - 全套 `npx playwright test --workers=2`：98 passed、27 skipped、13 failed，原始紀錄 `/tmp/ftl-playwright.log`。13 個失敗皆為未提供 `SUPABASE_TEST_*` 時，後台測試跳過後仍在 afterEach 建立 Supabase client，報 `supabaseUrl is required`。未放寬斷言或修改後台測試；`npm run test:contract` 8 項因缺金鑰跳過。
-- 使用者明確授權「允許先部署這次路徑修復」：僅豁免本機缺少後台測試金鑰的環境缺口，未豁免前台／匯出／部署後驗收。獨立前台回歸 `npx playwright test tests/visual --workers=2`：98 passed、22 skipped（/tmp/ftl-visual-final.log）。下一步合併 main、重測、push 並追蹤正式站驗收。
+- 使用者明確授權「允許先部署這次路徑修復」：僅豁免本機缺少後台測試金鑰的環境缺口，未豁免前台／匯出／部署後驗收。獨立前台回歸 `npx playwright test tests/visual --workers=2`：98 passed、22 skipped（/tmp/ftl-visual-final.log）。已提交 `782b2c5`、fast-forward 合併 main；main 重跑 npm test、build、匯出測試通過，前台 98 passed、22 skipped。已 push 並確認遠端 SHA 相同，Pages run `37663008546`，CI run `37663008335`；Pages 部署失敗於 Pull published content：3 次 `TypeError: fetch failed`，最後 `Supabase did not wake up after 3 attempts`；正式站尚未更新。這是新的正式環境阻塞，不在本機測試金鑰例外之內；已向使用者詢問恢復 Supabase 或另外授權使用既存快照，未繞過失敗步驟。
+- 截圖檢查：已校準瀏覽器縮放後 CSS 視口 1280×800 與 375×812，scrollWidth 等於視口寬；首頁桌機與手機樣式、Logo 恢復，手機選單→關於頁成功、console error 為空。截圖 `/Users/frank/Documents/ChatGPT/ftl-website/proof/local-desktop.png`、`/Users/frank/Documents/ChatGPT/ftl-website/proof/local-mobile.png`。兩輪本機畫面檢查；層次、留白、字體、配色、對齊、響應式均沿用既有設計且可正常顯示；狀態驗證選單展開／關閉與導覽，其他狀態沿用既有測試範圍；既有進場動效可見，未修改動效程式。正式站另做部署後驗收。
 - 簡短 QA：首次訪客看首頁、Logo 與手機導覽，社員從首頁進關於頁；可靠性角度檢查部署產物的資源位置。本機樣式與 Logo 已恢复，正式站仍待發布驗收。
+- 連線診斷：`dig @1.1.1.1 xesxfcqtbzmlanyvdeys.supabase.co A` 回 NXDOMAIN，對照 `supabase.com` 回 NOERROR 與 A 記錄；curl 前者 exit 6。無法單憑 DNS 確定是暫停、刪除或專案網址變更，需登入 Supabase dashboard 確認。
 - 另有既有遷移待辦，未在本輪擴改：Supabase Google 登入 redirect 白名單、分享 metadata／sitemap／文件仍有旧网址，trigger-rebuild 與備份設定仍使用原 GitHub owner。這些不能宣稱已驗證遷移完成。
 
 ## 這一輪在做什麼
