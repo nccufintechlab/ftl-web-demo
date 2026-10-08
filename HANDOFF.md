@@ -6,7 +6,15 @@
 - 正式 Supabase W12 已以舊資料／updated_at 條件更新，重新讀回中英文摘要與bio均相同。備份／預期／SQL／讀回在父目錄 proof/jade-before-20261008.json、jade-after-20261008.json、update-jade-20261008.sql、jade-production-readback.json。沒有密鑰、權限或結構變更。
 - 簡短QA：社員打開講者詳情並切換英文；內容編輯角度核對使用者提供的學經歷；分享接收者角度檢查圖片地址與實際HTTP。兩輪1280×800／375×812證據 proof/jade-round{1,2}-{desktop,mobile}.png。層次、留白、字體、藍色配色、對齊沿用既有；375px無橫向溢出；中英文詳情／關閉／鍵盤focus正常；長英文可垂直捲動；原有進場保留，無新增動效。impeccable detector無發現。本輪未改敏感流程，沒有正式安全攻擊測試。
 - 範圍延續已核准的課表發布及自訂網域修復；沿用使用者對暫停後台測試環境的既有例外，不重複索取權杖或批准。不能宣稱後台發布按鈕已修好，也不能宣稱Discord舊訊息已刷新；只能驗證網站端圖片可取用。
-- 分支 codex/jade-bio-share-preview，沿用乾淨的 course-schedule 工作區，來源 be1e360；site工作區原有修復差異未動。本輪測試與部署結果待下面補齊。
+- 分支 codex/jade-bio-share-preview，沿用乾淨的 course-schedule 工作區，來源 be1e360；site工作區原有修復差異未動。本輪測試與部署結果如下。
+
+### Jade Ho 與分享預覽上線結果
+
+- 提交 fe8ab13 合併 main；分支與 main 的 npm test（型別、lint、內部連結及35 unit）、build、2項匯出檢查、全前台回歸98 passed／22 skipped均通過；6項既有lint warnings保留。測試紀錄在 /tmp/jade-{test,build,export,visual}.log 與 /tmp/jade-main-{test,build,export,visual}.log。
+- Pages run 37719408815 成功，head fe8ab1356743b886b0d273e22a8c31c1d0c9ba41；已從正式Supabase拉資料。自動快照提交3d87343僅更新generatedAt，課程內容與本輪預期相同。已同步本地main。
+- 正式 https://nccufintechlab.tw/events/ 重新載入、開啟W12詳情，實際顯示新中文摘要／學經歷／專長，console errors為空。證據 /Users/frank/Documents/ChatGPT/ftl-website/proof/jade-live.png；已重設瀏覽器測試尺寸並停止本地預覽服務。
+- 正式首頁HTML的og:image與twitter:image均為 https://nccufintechlab.tw/assets/og.png，curl確認HTTP200 image/png。未向Discord發訊息，未宣稱其舊訊息快取已刷新。
+- 獨立Next architecture CI 37719408826最後查詢仍in_progress；後台測試環境仍暫停、後台發布權杖403仍為既知限制。使用者已核可範圍例外，本輪無新增權限或密鑰變更。
 
 # 本輪狀態 — 2026-10-08 社課課表更新
 
