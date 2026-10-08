@@ -25,8 +25,8 @@ export const chainSeries = {
   formatEn: "Four sessions in Chinese (extra time slots) plus one English reading session (10/21, regular slot). Each session is 3.5 hours: 70 minutes of teaching, 90 minutes hands-on, then a quiz and certificate.",
   audience: "零基礎、不需程式。每堂 15–30 人。",
   audienceEn: "No prior knowledge, no coding. 15–30 people per session.",
-  instructor: "朱廷翊（合作企劃部）",
-  instructorEn: "Chu Ting-Yi (Partnerships & programs)",
+  instructor: "Zuemen（合作企劃部）",
+  instructorEn: "Zuemen (Partnerships & programs)",
   courses: [
     { n: "01", title: "看不見的鎖：雜湊、簽章與後量子時代", titleEn: "The Invisible Lock: hashes, signatures and the post-quantum era", keywords: "雜湊 · 數位簽章 · 私鑰 · 錢包 · 後量子密碼學（PQC）", keywordsEn: "Hashes · Digital signatures · Private keys · Wallets · Post-quantum cryptography (PQC)", hook: "你在網站上設的密碼，資料庫裡到底存成什麼樣子？如果量子電腦真的問世，今天所有的加密還撐得住嗎？", hookEn: "What does the password you set on a website actually look like in the database? If quantum computers arrive, will today’s encryption hold?", body: "從最小的元件講起：一段文字如何被壓成固定長度的亂碼、簽名如何證明「這件事是我做的」而不需要任何人作保，最後談量子運算的威脅與各國的後量子密碼標準。", bodyEn: "Start from the smallest parts: how text is compressed into a fixed-length scramble, how a signature proves “I did this” without anyone vouching for you, and finally the quantum threat and the post-quantum standards countries are drafting.", practice: "驗證雜湊的雪崩效應、分組競賽找出符合條件的雜湊值、建立第一個錢包並完成一筆轉帳。", practiceEn: "Verify the avalanche effect of hashes, race in teams to find a qualifying hash, create your first wallet and make a transfer." },
     { n: "02", title: "一塊錢怎麼變成一串程式碼：穩定幣", titleEn: "How a Dollar Becomes Code: stablecoins", keywords: "穩定幣 · 準備金 · 脫鉤 · 跨境支付 · 虛擬資產服務法", keywordsEn: "Stablecoins · Reserves · De-pegging · Cross-border payments · Virtual Asset Services Act", hook: "為什麼一枚代幣可以長期等於一美元？同一筆錢在鏈上幾十秒就到，銀行為什麼要三天？", hookEn: "Why can one token stay worth one US dollar for years? Why does the same money arrive in seconds on-chain when a bank takes three days?", body: "拆解三種讓價格穩住的機制，回顧真實的脫鉤事件，並讀懂一份準備金報告——什麼叫「十足準備」、為什麼法規要禁止付息。", bodyEn: "Break down the three mechanisms that hold a price steady, revisit real de-pegging events, and learn to read a reserve report — what “fully reserved” means and why the law bans paying interest.", practice: "在測試網完成一次穩定幣轉帳，與傳統跨境匯款的時間和費用做對照；查閱真實發行商的準備金報告。", practiceEn: "Make a stablecoin transfer on a testnet and compare time and fees with a traditional remittance; read a real issuer’s reserve report." },
@@ -36,15 +36,15 @@ export const chainSeries = {
   ] as ChainCourse[],
 };
 
-// 幹部：姓名依社團提供的名單（原始資料即為遮罩形式）。手機與學號不上站。
+// 幹部：英文名依社團提供的 115-1 名單；Ricky 對應統計碩二經使用者確認。私人聯絡資料不上站。
 export type Officer = { name: string; dept: string; deptEn: string };
 export const leadership = {
-  president: { name: "方○享", dept: "資管三", deptEn: "MIS, 3rd year" },
-  vicePresident: { name: "何○文", dept: "日文三", deptEn: "Japanese, 3rd year" },
+  president: { name: "Frank", dept: "資管三", deptEn: "MIS, 3rd year" },
+  vicePresident: { name: "Wenz", dept: "日文三", deptEn: "Japanese, 3rd year" },
   departments: [
-    { name: "專案開發部", en: "Projects", members: [{ name: "曾○庭", dept: "會計四", deptEn: "Accounting, 4th year" }, { name: "陳○安", dept: "資管三", deptEn: "MIS, 3rd year" }, { name: "劉○綺", dept: "資管二", deptEn: "MIS, 2nd year" }, { name: "藍○瀋", dept: "統計碩二", deptEn: "Statistics, MS 2nd year" }, { name: "王○問", dept: "交大管科三", deptEn: "Management Science (NYCU), 3rd year" }] as Officer[] },
-    { name: "合作企劃部", en: "Partnerships & programs", members: [{ name: "朱○翊", dept: "資管四", deptEn: "MIS, 4th year" }] as Officer[] },
-    { name: "品牌人資社群部", en: "Brand, people & community", members: [{ name: "曾○甫", dept: "國貿三", deptEn: "International Business, 3rd year" }, { name: "謝○裕", dept: "財管三", deptEn: "Finance, 3rd year" }] as Officer[] },
-    { name: "企業關係部", en: "Corporate relations", members: [{ name: "胡○晟", dept: "風管三", deptEn: "Risk Management, 3rd year" }, { name: "曾○翔", dept: "金融碩三", deptEn: "Money and Banking, MS 3rd year" }, { name: "李○翰", dept: "國金碩二", deptEn: "International Finance, MS 2nd year" }] as Officer[] },
+    { name: "專案開發部", en: "Projects", members: [{ name: "Hunter", dept: "會計四", deptEn: "Accounting, 4th year" }, { name: "Andy", dept: "資管三", deptEn: "MIS, 3rd year" }, { name: "Yuki", dept: "資管二", deptEn: "MIS, 2nd year" }, { name: "Ricky", dept: "統計碩二", deptEn: "Statistics, MS 2nd year" }, { name: "Mia", dept: "交大管科三", deptEn: "Management Science (NYCU), 3rd year" }] as Officer[] },
+    { name: "合作企劃部", en: "Partnerships & programs", members: [{ name: "Zuemen", dept: "資管四", deptEn: "MIS, 4th year" }] as Officer[] },
+    { name: "品牌人資社群部", en: "Brand, people & community", members: [{ name: "Dean", dept: "國貿三", deptEn: "International Business, 3rd year" }, { name: "Eddy", dept: "財管三", deptEn: "Finance, 3rd year" }] as Officer[] },
+    { name: "企業關係部", en: "Corporate relations", members: [{ name: "Dylan", dept: "風管三", deptEn: "Risk Management, 3rd year" }, { name: "Kay", dept: "金融碩三", deptEn: "Money and Banking, MS 3rd year" }, { name: "Lobi", dept: "國金碩二", deptEn: "International Finance, MS 2nd year" }] as Officer[] },
   ],
 };

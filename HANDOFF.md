@@ -1,3 +1,18 @@
+# 本輪狀態 — 2026-10-08 英文幹部姓名與首頁社團新聞
+
+- 目標：依115-1 CSV改幹部英文名，兩則政大新聞含照片放在首頁FinTech週報之前。使用者明確確認統計碩二既有幹部就是Ricky。
+- 工作區course-schedule，分支codex/officers-campus-news，來源bd4cd6f；site工作區既有未提交內容未動。本輪產品修改仍未提交／合併／推送／部署。
+- 姓名13位：Frank、Wenz、Hunter、Andy、Yuki、Ricky、Mia、Zuemen、Dean、Eddy、Dylan、Kay、Lobi。職務與系級不變；區塊鏈系列講師名稱也同步Zuemen。
+- CampusNews靜態元件接在週報之前；兩張社團提供給政大新聞的照片、來源日期、中英文短摘要、原文新分頁連結。來源與界線詳docs/content/2026-10-08-officers-news.md。無新增後台資料表／權限／依賴／費用；新聞後續仍需透過程式更新。
+- QA角度：社員核對名字系級、編輯核對來源日期與照片、手機讀者檢查閱讀與語言切換。實際瀏覽器驗證Ricky統計碩二及13位名單；新聞位於週報之前；英文切換正常、圖片naturalWidth400、外連noopener noreferrer、console errors空。
+- 兩輪桌機1280×800／手機375×812邏輯尺寸，proof/news-round{1,2}-{desktop,mobile}.png（父目錄）。瀏覽器原縮放1.2使viewport設定需校準：設定1536×960及450×975後用DOM innerWidth/Height確認目標尺寸；截圖工具內容有額外縮放白邊，不當成網站溢出。375px DOM scrollWidth=375。八項自檢：標題／圖／摘要层次明確；留白沿用section/card；Huninn/Outfit沿用；藍白配色沿用；桌機雙欄對齐；手機單欄不溢出；鍵盤focus與語言／外連屬性正常；沒有新增動效。impeccable detect結果[]。
+- 個資界線：原CSV不複製進repo/public。以原CSV作正對照、排除已公開社團email後掃描out HTML/JS，私人email命中為空；不記錄私人email值。不新增對外输入或敏感操作，沒有正式站安全攻擊測試。
+- 環境問題：初跑ESLint cli.execute不存在；確認套件檔readFileSync讀出長度0，依package-lock npm ci後恢復，未改鎖檔版本。npm報9項依賴警示（8 high/1 critical），尚未做可利用性評估，非本輪新增且未執行audit fix。建置卡在public/media/books/proof-of-stake.jpg：lsof定位、ls flags證實compressed,dataless且blocks0；該生成副本移至父目錄proof/media-before-officers-20261008，既有sync腳本從assets重建後build成功。
+- 已通過：npm test（型別、lint、連結、35 unit；6既有lint warnings）、npm run build、2項匯出檢查、全前台98 passed/22 skipped。紀錄/tmp/officers-{test,build,export,visual}.log。靜態內容依政策不新增瑣碎unit。
+- **已知測試限制**：完整後台npm run test:admin實跑13 failed/5 skipped，清理hook在缺SUPABASE_TEST_URL時仍呼叫createClient，Error supabaseUrl is required。8項contract因缺測試環境全skip。證據/tmp/officers-admin.log、/tmp/officers-contract.log。不能宣稱後台全測通過；使用者本輪回覆「上線」，明確授權此次內容更新的發布例外；保留失敗證據，未更改後台權限或權杖。
+- 教學已交付：英文名與新聞的使用者結果、靜態資料隨既有Pages發布、來源與個資風險、沿用既有卡片無新增費用；備援為日後新聞常更新再擴充後台。實際套用product-owner-teaching、impeccable、emil-design-eng、systematic-debugging、verification-before-completion、computer-use、built-in-browser。
+- 下一步：確認本輪發布例外後，保留上述限制，檢查工作區，commit→main重跑前台檢查→push追蹤既有Pages執行→正式/#news與/about/#members验收；不觸碰待核准權杖。
+
 # 本輪狀態 — 2026-10-08 其他講者公開資料補齊
 
 - 使用者要求查公開資料補其餘講者介紹，並依標題填課程內容；範圍W3陳顯立、W6林庠序、W10郭茂仁、W13陳昌裕，中英文bio／abstract。職稱、日期、講題、獎勵、Jade Ho與其他活動不變。

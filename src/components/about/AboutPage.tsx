@@ -12,7 +12,7 @@ function Icon({ name }: { name: string }) {
 }
 
 // 關於我們：社團是什麼、成立資訊、指導單位、幹部、社員相關資訊、常見問題。
-// 幹部一人一格（預留照片位）；姓名依社團提供的名單（遮罩形式）。
+// 幹部一人一格（預留照片位）；英文名依社團提供的名單。
 const officers = [
   { role: "社長", roleEn: "President", ...leadership.president },
   { role: "副社長", roleEn: "Vice President", ...leadership.vicePresident },

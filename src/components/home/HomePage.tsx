@@ -1,6 +1,7 @@
 import { SitePageShell } from "@/components/layout/SitePageShell";
 import { WeekCalendar } from "@/components/home/WeekCalendar";
 import { LogoDraw } from "@/components/visual/LogoDraw";
+import { CampusNews } from "@/components/home/CampusNews";
 import { partners, projectDecks, weekly } from "@/lib/content";
 import { ProjectsEmpty } from "@/components/projects/ProjectsEmpty";
 import { withBasePath } from "@/lib/site-data";
@@ -88,6 +89,8 @@ export function HomePage() {
             <div className="reveal"><WeekCalendar /></div>
           </div>
         </section>
+
+        <CampusNews />
 
         <section className="section" id="weekly">
           <div className="wrap">

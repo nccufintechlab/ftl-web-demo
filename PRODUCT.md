@@ -31,7 +31,7 @@ web
 
 ## Evidence on Hand
 
-產品事實來自使用者本次遷移指示，以及既有 README.md、STATUS.md、HANDOFF.md 與管理後台設計。網站不放學號與電話，幹部姓名依既有遮罩形式顯示；不得另造內容或成效聲明。
+產品事實來自使用者本次遷移指示，以及既有 README.md、STATUS.md、HANDOFF.md 與管理後台設計。網站不放學號與電話，幹部以社團提供且確認的英文名顯示；不得另造內容或成效聲明。
 
 ## Product Principles
 

@@ -646,6 +646,11 @@ a{ color:inherit }
 .issue__cover--link{ display:block; text-decoration:none; color:inherit; margin:0; transition:transform var(--dur) var(--ease), box-shadow var(--dur) ease }
 @media (hover:hover) and (pointer:fine){ .issue__cover--link:hover{ transform:translateY(-4px); box-shadow:var(--glass-hi), var(--shadow-lift) } }
 .project-teaser__img{ width:100%; aspect-ratio:2/1; object-fit:cover; border-radius:14px; margin-bottom:4px }
+.campus-news__figure{ margin:0 }
+.campus-news__figure img{ display:block; width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; border-radius:var(--r-sm) }
+.campus-news__figure figcaption{ margin-top:var(--s2); color:var(--ink-3); font-size:.8rem }
+.campus-news__meta{ display:flex; flex-wrap:wrap; gap:var(--s3); color:var(--ink-3); font-size:.85rem }
+.campus-news>.link-arrow{ margin-top:auto; padding-top:var(--s3) }
 
 /* ══ 資源頁 ═════════════════════════════════════════════════ */
 .res-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px }
