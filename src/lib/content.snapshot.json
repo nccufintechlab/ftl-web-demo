@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T03:04:23.806Z",
+  "generatedAt": "2026-10-08T06:49:19.092Z",
   "semester": {
     "code": "115-1",
     "range": "2026.09 – 2026.12",
@@ -647,6 +647,12 @@
       "en": "Taiwan Academy of Banking and Finance",
       "href": "https://www.tabf.org.tw/",
       "logo": "/media/partners/tabf.svg"
+    },
+    {
+      "zh": "政大金融科技研究中心",
+      "en": "FinTech Research Center, FTRC",
+      "href": "https://www.ftrc.nccu.edu.tw",
+      "logo": "/media/partners/news-1687578008-6467ea10691d42c3d0ace7a69689893e-1791441420459.jpg"
     }
   ],
   "weekly": [
