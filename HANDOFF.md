@@ -4,12 +4,21 @@
 - 前台現在 5 場講座、3 場工作坊、2 場讀書會；加上 W14 共 11 堂計入獎勵。W7 改 Proof of Stake、W10 郭茂仁、W11 競賽工作坊、W12 Jade Ho、W13 陳昌裕。新講者未提供的簡介留空、詳細內容待公告，沒有沿用舊講者簡介。既有社費、獎勵金金額與結算規則未改。
 - 首頁與關於頁同步 5 位講者／2 本書，活動頁摘要改依內容自動計數。手機完整長標題讓既有「收合後少於十屏」測試失敗（8849 > 8120），局部收緊課表與詳情卡留白／標題後，原測試通過。桌機視覺沿用 Glass V6，不改動效。
 - 資料流：Supabase events/settings → 既有 Pages workflow 讀取已發布資料 → 靜態官網。正式 SQL 以 transaction + 預期舊 data/updated_at 檢查避免覆蓋同時修改。讀回逐欄比對 id/semester/week/date/kind/data/status/position/deleted_at 全相同，settings 全 data 相同。正常後台活動清單已顯示更新。
-- 備份與 SQL 位於父目錄 proof：courses-before-20261008.json、settings-before-20261008.json、update-courses-and-settings-20261008.sql、courses-production-readback.json。皆不含密鑰。修改已存正式資料庫；網站發布待下列追蹤更新。
+- 備份與 SQL 位於父目錄 proof：courses-before-20261008.json、settings-before-20261008.json、update-courses-and-settings-20261008.sql、courses-production-readback.json。皆不含密鑰。修改已存正式資料庫；網站已發布並完成正式驗收。
 - 工作區：course-schedule，分支 codex/update-course-schedule，來源 main 38ad546。managed worktree tool 誤指外層空 repo 且 main 無效，改用內層 site 的 git worktree 建立隔離工作區；原 site 的後台修復未提交內容保留。未將其 AdminOverview／Edge Function 程式混入本輪提交。
 - QA 角度：社員查日期、講者、計入資格；幹部核對後台與前台來源一致；手機訪客檢查長課名與分類／詳情。實測講座篩選、新講座展開、英文切換正常，console errors 空。此輪內容及排版修改未改登入／權限／付費流程，未做正式攻擊測試。
 - 畫面兩輪桌機1280×800、手機375×812檢查，最終 proof/courses-final-desktop.png、proof/courses-final-mobile.png（絕對根目錄 /Users/frank/Documents/ChatGPT/ftl-website）。層次：主標與課名清楚；留白：手機已修過長問題；字體：沿用 Huninn／Outfit；配色：沿用藍色系；對齊：卡片／文字左右一致；響應式：375px scrollWidth=375；狀態：分類、詳情展開、語言切換通過，既有空狀態由回歸測試涵蓋；動效：沿用既有進場／hover，沒有新增。impeccable detector 對修改 TSX/CSS 無發現。
 - 檢查：npm test（型別、lint、內部連結、35 unit）通過，6 既有 lint warnings；build 與自訂網域匯出檢查通過。手機原失敗測試重跑4/4通過；全前台回歸 98 passed、22 skipped（依裝置條件）。測試 Supabase 仍暫停，本輪未修改也未宣稱驗過後台權限／重建函式。
 - 尚未解決的獨立事項：後台發布按鈕的 GITHUB_TOKEN 對新組織仍403，需使用者／組織 owner 完成權杖授權；本次使用既有 GitHub 發布流程，不變更密鑰或管理員權限。
+
+
+### 本次上線結果
+
+- 使用者明確回覆「允許發布本次課表更新」：在前台及正式資料讀取驗證通過後發布，僅豁免已暫停後台測試專案造成的缺口，不修改權限／密鑰。
+- 提交 745d169 合併 main，main 重跑 npm test（35 unit）、build、匯出檢查及全前台回歸（98 passed、22 skipped）通過。push 後已確認遠端 SHA；Pages run 37718104579 成功，正常從 Supabase 拉內容並部署；產生內容快照提交 e52bc53。未使用救援快照模式，未重複觸發部署。
+- 正式 https://nccufintechlab.tw/events/ 重新載入後顯示5／3／2場次與新課表；實際開啟 Jade Ho 講座、《Proof of Stake》讀書會成功，沒有 console errors。/about/ 重新載入後確認五位講者、兩本書與11堂獎勵組成；部署產生的 calendar/lectures/workshops/books/membership 逐欄與預期相同。首次瀏覽仍取得舊快取，重新載入即更新。
+- 正式畫面證據：/Users/frank/Documents/ChatGPT/ftl-website/proof/courses-live.png。前台部署成功不等於後台發布按鈕已修好；該權杖403仍待處理。獨立 Next architecture CI 37718104522 最後查詢仍 in_progress，未宣稱後台全測通過。
+- 本轮程序檢查曾因外部 node_modules 符號連結被 Turbopack 拒絕；改複製既有鎖定依賴後成功，未改建置設定或加套件。一次臨時快照比對指令漏 opts 參數，補上既有函式必填參數後比對通過，未改產品程式。
 
 # HANDOFF — Glass V6 改版
 
