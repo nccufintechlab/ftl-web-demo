@@ -10,98 +10,12 @@
     "conceptEn": "Expert lectures → hands-on workshops → English reading & discussion → alumni and member networking, in rotation."
   },
   "membership": {
-    "types": [
-      {
-        "name": "專案生",
-        "en": "Project member",
-        "fee": "3,000 元／學期",
-        "feeEn": "NT$3,000 / semester",
-        "how": "書面審查＋團體面試",
-        "howEn": "Written screening + group interview",
-        "perks": "全部社課與交流活動、社課資源（簡報、錄影、閱讀材料）、LINE Bot 與 Discord 社群。適用出席獎勵金。",
-        "perksEn": "All sessions and socials, session materials (slides, recordings, readings), LINE Bot and Discord. Eligible for the attendance reward."
-      },
-      {
-        "name": "旁聽生",
-        "en": "Auditor",
-        "fee": "1,500 元／學期",
-        "feeEn": "NT$1,500 / semester",
-        "how": "免書審，LINE Bot 隨時繳費入社",
-        "howEn": "No screening; join any time by paying through the LINE Bot",
-        "perks": "旁聽生資格與權益範圍另行公告；不適用出席獎勵金。",
-        "perksEn": "Auditor entitlements to be announced; not eligible for the attendance reward."
-      }
-    ],
-    "timeline": [
-      {
-        "date": "09/07 – 09/17",
-        "zh": "書審填寫",
-        "en": "Applications",
-        "done": false
-      },
-      {
-        "date": "09/18",
-        "zh": "公布書審結果並確認面試時間",
-        "en": "Screening results; confirm interview slot",
-        "done": false
-      },
-      {
-        "date": "09/19 – 09/20",
-        "zh": "（六、日）晚上面試",
-        "en": "Interviews, Sat–Sun evening",
-        "done": false
-      },
-      {
-        "date": "09/21",
-        "zh": "公布專案生結果",
-        "en": "Project-member results",
-        "done": false
-      }
-    ],
-    "reward": {
-      "headline": "入社 3,000，全勤領回 2,000。",
-      "headlineEn": "Pay NT$3,000; full attendance gets NT$2,000 back.",
-      "tiers": [
-        [
-          "11 堂（全勤）",
-          "2,000 元",
-          "11 (full attendance)",
-          "NT$2,000"
-        ],
-        [
-          "9–10 堂",
-          "1,000 元",
-          "9–10",
-          "NT$1,000"
-        ],
-        [
-          "7–8 堂",
-          "500 元",
-          "7–8",
-          "NT$500"
-        ],
-        [
-          "6 堂以下",
-          "0 元",
-          "6 or fewer",
-          "NT$0"
-        ]
-      ],
-      "countedSessions": "計入的 11 堂：3 場講座、3 場工作坊、3 場英語讀書會、校友 networking 會、雞尾酒會。迎新、期中與期末聚餐不計入。",
-      "countedSessionsEn": "The 11 counted sessions: 3 lectures, 3 workshops, 3 English reading sessions, the alumni networking night and the cocktail party. Welcome night and the two dinners do not count.",
-      "attendance": "以 LINE Bot 當堂簽到為準。開始前 15 分鐘至開始後 30 分鐘內簽到都算出席；超過 30 分鐘不計。因病、面試、重要考試等不可抗力缺席，可事前申請補作業認列，每學期一次。",
-      "attendanceEn": "Attendance is the LINE Bot check-in. Checking in from 15 minutes before to 30 minutes after the start counts; later does not. For illness, interviews or major exams you may apply in advance to make up with an assignment, once per semester.",
-      "payout": "12/10 雞尾酒會後結算並推播，12/10–12/12 異議期，12/18 前匯入登記帳戶。",
-      "payoutEn": "Settled and pushed after the 12/10 cocktail party; objections 12/10–12/12; transferred to your registered account by 12/18.",
-      "points": "另設積分獎金：學期積分第一名 4,000 元（由贊助款支出）。積分項目包含社課分享／提問、個人任務、專案里程碑、期末發表、活動協助等；每月 1 日 Bot 推播 Top 5。積分與出席獎勵金互不掛鉤。",
-      "pointsEn": "A separate points prize: NT$4,000 for the top scorer of the semester (funded by sponsorship). Points come from sharing and questions in sessions, individual tasks, project milestones, the final presentation and event help; the Bot pushes the top 5 on the 1st of each month. Points do not affect the attendance reward."
-    },
     "faq": [
       [
         "社費 3,000 元包含什麼？",
-        "三場業界講座、三場工作坊、三場英語讀書會、校友會與雞尾酒會。全勤者期末領回 2,000 元，實際負擔 1,000 元。",
+        "五場業界講座、三場工作坊、兩場英語讀書會，以及一場金融科技校友 Networking × 學期社員雞尾酒會。全勤者期末領回 2,000 元，實際負擔 1,000 元。",
         "What does the NT$3,000 fee cover?",
-        "Three industry lectures, three workshops, three English reading sessions, the alumni night and the cocktail party. Full attendance gets NT$2,000 back, so the net cost is NT$1,000."
+        "Five industry lectures, three workshops, two English reading sessions and one combined FinTech alumni networking and semester members cocktail party. Full attendance gets NT$2,000 back, so the net cost is NT$1,000."
       ],
       [
         "缺一堂還算全勤嗎？",
@@ -134,19 +48,105 @@
         "Auditors skip screening, can join any time for NT$1,500 and are not eligible for the reward; project members go through screening and an interview, pay NT$3,000 and are eligible."
       ]
     ],
+    "note": "以上依「115-1 社費與出席獎勵金辦法 v2.2」，9/9 迎新社員大會表決通過後生效。",
+    "types": [
+      {
+        "en": "Project member",
+        "fee": "3,000 元／學期",
+        "how": "書面審查＋團體面試",
+        "name": "專案生",
+        "feeEn": "NT$3,000 / semester",
+        "howEn": "Written screening + group interview",
+        "perks": "全部社課與交流活動、社課資源（簡報、錄影、閱讀材料）、LINE Bot 與 Discord 社群。適用出席獎勵金。",
+        "perksEn": "All sessions and socials, session materials (slides, recordings, readings), LINE Bot and Discord. Eligible for the attendance reward."
+      },
+      {
+        "en": "Auditor",
+        "fee": "1,500 元／學期",
+        "how": "免書審，LINE Bot 隨時繳費入社",
+        "name": "旁聽生",
+        "feeEn": "NT$1,500 / semester",
+        "howEn": "No screening; join any time by paying through the LINE Bot",
+        "perks": "旁聽生資格與權益範圍另行公告；不適用出席獎勵金。",
+        "perksEn": "Auditor entitlements to be announced; not eligible for the attendance reward."
+      }
+    ],
+    "reward": {
+      "tiers": [
+        [
+          "11 堂（全勤）",
+          "2,000 元",
+          "11 (full attendance)",
+          "NT$2,000"
+        ],
+        [
+          "9–10 堂",
+          "1,000 元",
+          "9–10",
+          "NT$1,000"
+        ],
+        [
+          "7–8 堂",
+          "500 元",
+          "7–8",
+          "NT$500"
+        ],
+        [
+          "6 堂以下",
+          "0 元",
+          "6 or fewer",
+          "NT$0"
+        ]
+      ],
+      "payout": "12/10 雞尾酒會後結算並推播，12/10–12/12 異議期，12/18 前匯入登記帳戶。",
+      "points": "另設積分獎金：學期積分第一名 4,000 元（由贊助款支出）。積分項目包含社課分享／提問、個人任務、專案里程碑、期末發表、活動協助等；每月 1 日 Bot 推播 Top 5。積分與出席獎勵金互不掛鉤。",
+      "headline": "入社 3,000，全勤領回 2,000。",
+      "payoutEn": "Settled and pushed after the 12/10 cocktail party; objections 12/10–12/12; transferred to your registered account by 12/18.",
+      "pointsEn": "A separate points prize: NT$4,000 for the top scorer of the semester (funded by sponsorship). Points come from sharing and questions in sessions, individual tasks, project milestones, the final presentation and event help; the Bot pushes the top 5 on the 1st of each month. Points do not affect the attendance reward.",
+      "attendance": "以 LINE Bot 當堂簽到為準。開始前 15 分鐘至開始後 30 分鐘內簽到都算出席；超過 30 分鐘不計。因病、面試、重要考試等不可抗力缺席，可事前申請補作業認列，每學期一次。",
+      "headlineEn": "Pay NT$3,000; full attendance gets NT$2,000 back.",
+      "attendanceEn": "Attendance is the LINE Bot check-in. Checking in from 15 minutes before to 30 minutes after the start counts; later does not. For illness, interviews or major exams you may apply in advance to make up with an assignment, once per semester.",
+      "countedSessions": "計入的 11 堂：5 場講座、3 場工作坊、2 場英語讀書會、1 場金融科技校友 Networking × 學期社員雞尾酒會。迎新、期中與期末聚餐不計入。",
+      "countedSessionsEn": "The 11 counted sessions: 5 lectures, 3 workshops, 2 English reading sessions and 1 combined FinTech alumni networking and semester members cocktail party. Welcome night and the two dinners do not count."
+    },
     "payment": [
       "錄取通知後加入官方 LINE Bot，完成基本資料填寫。",
       "Bot 推播匯款資訊（金額、備註填學號）。",
       "匯款後於 Bot 回覆「後五碼 xxxxx」。",
       "財務組核對後，Bot 通知入社成功並發送社群連結。"
     ],
+    "timeline": [
+      {
+        "en": "Applications",
+        "zh": "書審填寫",
+        "date": "09/07 – 09/17",
+        "done": false
+      },
+      {
+        "en": "Screening results; confirm interview slot",
+        "zh": "公布書審結果並確認面試時間",
+        "date": "09/18",
+        "done": false
+      },
+      {
+        "en": "Interviews, Sat–Sun evening",
+        "zh": "（六、日）晚上面試",
+        "date": "09/19 – 09/20",
+        "done": false
+      },
+      {
+        "en": "Project-member results",
+        "zh": "公布專案生結果",
+        "date": "09/21",
+        "done": false
+      }
+    ],
     "paymentEn": [
       "After the admission notice, add the official LINE Bot and fill in your basic details.",
       "The Bot sends the transfer details (amount; put your student ID in the memo).",
       "After transferring, reply to the Bot with the last five digits.",
       "Once the finance team confirms, the Bot notifies you and sends the community links."
-    ],
-    "note": "以上依「115-1 社費與出席獎勵金辦法 v2.2」，9/9 迎新社員大會表決通過後生效。"
+    ]
   },
   "calendar": [
     {
@@ -163,10 +163,10 @@
       "week": 2,
       "date": "09/16",
       "kind": "workshop",
-      "zh": "從痛點洞察到原型驗證：AI 賦能設計思考",
-      "en": "From pain points to prototypes: AI-assisted design thinking",
-      "note": "幹部群／客座講師帶領實作",
-      "noteEn": "Led by officers / guest instructor",
+      "zh": "從痛點洞察到原型驗證：金融科技與 AI 賦能設計思考創新實戰課",
+      "en": "From pain-point discovery to prototype validation: FinTech and AI-powered design thinking",
+      "note": "幹部群／客座講師",
+      "noteEn": "Officers / guest instructors",
       "counts": true
     },
     {
@@ -174,17 +174,17 @@
       "date": "09/23",
       "kind": "lecture",
       "zh": "AI 時代商業模式創新：穿透演算法黑盒的信任變現與價值重構",
-      "en": "Business model innovation in the AI era",
-      "note": "陳顯立 董事長（好廣告數據）",
-      "noteEn": "Chen Hsien-Li, Chairman, Good Ads Data",
+      "en": "Business model innovation in the AI era: monetizing trust and reshaping value beyond the algorithmic black box",
+      "note": "陳顯立 董事長（好廣告）",
+      "noteEn": "Chen Hsien-Li, Chairman, Good Ads",
       "counts": true
     },
     {
       "week": 4,
       "date": "09/30",
       "kind": "reading",
-      "zh": "Nexus: A Brief History of Information Networks from the Stone Age to AI",
-      "en": "Nexus (Yuval Noah Harari)",
+      "zh": "英語讀書會：Nexus: A Brief History of Information Networks",
+      "en": "English reading club: Nexus: A Brief History of Information Networks",
       "note": "全程英文",
       "noteEn": "Conducted entirely in English",
       "counts": true
@@ -193,10 +193,10 @@
       "week": 5,
       "date": "10/07",
       "kind": "workshop",
-      "zh": "從精準 KYC 到策略落地：顧問式客製化解決方案",
-      "en": "From KYC to strategy: consulting-style solutions",
-      "note": "幹部群／客座講師帶領實作",
-      "noteEn": "Led by officers / guest instructor",
+      "zh": "金融科技驅動：從精準 KYC 到顧問式策略落地實戰課",
+      "en": "FinTech in practice: from precise KYC to consulting-led strategy execution",
+      "note": "幹部群／客座講師",
+      "noteEn": "Officers / guest instructors",
       "counts": true
     },
     {
@@ -204,8 +204,8 @@
       "date": "10/14",
       "kind": "lecture",
       "zh": "雙軸轉型的未來金融：ESG 永續數據如何驅動普惠金融創新",
-      "en": "ESG data and inclusive finance",
-      "note": "林庠序 執行長（市民永續）",
+      "en": "The future of finance through twin transformation: ESG data driving inclusive financial innovation",
+      "note": "林庠序 執行長（市民永續股份有限公司）",
       "noteEn": "Lin Hsiang-Hsu, CEO, City Sustainability",
       "counts": true
     },
@@ -213,8 +213,8 @@
       "week": 7,
       "date": "10/21",
       "kind": "reading",
-      "zh": "The Trading Game: A Confession",
-      "en": "The Trading Game (Gary Stevenson)",
+      "zh": "英語讀書會：Proof of Stake: The Making of Ethereum and the Philosophy of Blockchains",
+      "en": "English reading club: Proof of Stake: The Making of Ethereum and the Philosophy of Blockchains",
       "note": "全程英文",
       "noteEn": "Conducted entirely in English",
       "counts": true
@@ -242,51 +242,51 @@
     {
       "week": 10,
       "date": "11/11",
-      "kind": "workshop",
-      "zh": "從題目拆解到商模提案：AI 驅動商業競賽致勝策略",
-      "en": "From case to pitch: winning business competitions with AI",
-      "note": "幹部群／客座講師帶領實作",
-      "noteEn": "Led by officers / guest instructor",
+      "kind": "lecture",
+      "zh": "穩定幣與 RWA 代幣化：機構級數位資產的市場結構、法遵框架與實務案例",
+      "en": "Stablecoins and RWA tokenization: market structure, compliance frameworks and institutional digital asset use cases",
+      "note": "郭茂仁 台灣業務發展負責人（Zodia Custody）",
+      "noteEn": "郭茂仁, Head of Business Development, Taiwan, Zodia Custody",
       "counts": true
     },
     {
       "week": 11,
       "date": "11/18",
-      "kind": "lecture",
-      "zh": "兆級藍海的無息經濟學：伊斯蘭金融治理架構與全球 FinTech 創新趨勢",
-      "en": "Islamic finance and global FinTech",
-      "note": "陳緹珍 研究員（台灣金融研訓院）",
-      "noteEn": "Chen Ti-Chen, Researcher, TABF",
+      "kind": "workshop",
+      "zh": "精準拆解與戰略佈局：金融商業競賽提案實戰課",
+      "en": "Precise analysis and strategic planning: a practical workshop on financial business competition proposals",
+      "note": "幹部群／客座講師",
+      "noteEn": "Officers / guest instructors",
       "counts": true
     },
     {
       "week": 12,
       "date": "11/25",
-      "kind": "reading",
-      "zh": "Underground Empire: How America Weaponized the World Economy",
-      "en": "Underground Empire (Farrell & Newman)",
-      "note": "全程英文",
-      "noteEn": "Conducted entirely in English",
+      "kind": "lecture",
+      "zh": "量化投資專題演講暨職涯職能分享",
+      "en": "Quantitative investing: a special lecture and career skills sharing",
+      "note": "Jade Ho 創辦人暨量化避險基金經理人（Jade Capitech）",
+      "noteEn": "Jade Ho, Founder and Quantitative Hedge Fund Manager, Jade Capitech",
       "counts": true
     },
     {
       "week": 13,
       "date": "12/02",
-      "kind": "social",
-      "zh": "金融科技校友 networking 會",
-      "en": "FinTech alumni networking",
-      "note": "產學連結與職涯經驗傳承",
-      "noteEn": "Industry links and career advice",
+      "kind": "lecture",
+      "zh": "AI 不是專案，而是旅程：企業 AI 落地、數位轉型與金融業實務案例",
+      "en": "AI is a journey, not a project: enterprise AI implementation, digital transformation and financial industry cases",
+      "note": "陳昌裕 資深顧問協理（前台灣 IBM 全球企業諮詢服務事業群）",
+      "noteEn": "陳昌裕, Senior Consulting Associate Director, Formerly IBM Taiwan Global Business Services",
       "counts": true
     },
     {
       "week": 14,
       "date": "12/09",
       "kind": "social",
-      "zh": "學期社員雞尾酒會",
-      "en": "Semester cocktail party",
-      "note": "跨組深度交流",
-      "noteEn": "Cross-team networking",
+      "zh": "金融科技校友 Networking × 學期社員雞尾酒會",
+      "en": "FinTech alumni networking × semester members cocktail party",
+      "note": "校友與社員交流",
+      "noteEn": "Alumni and member networking",
       "counts": true
     },
     {
@@ -315,13 +315,13 @@
       "week": 3,
       "date": "09/23",
       "title": "AI 時代商業模式創新：穿透演算法黑盒的信任變現與價值重構",
-      "titleEn": "Business model innovation in the AI era: turning trust into value beyond the algorithmic black box",
+      "titleEn": "Business model innovation in the AI era: monetizing trust and reshaping value beyond the algorithmic black box",
       "speaker": "陳顯立",
       "speakerEn": "Chen Hsien-Li",
       "role": "董事長",
       "roleEn": "Chairman",
-      "org": "好廣告數據",
-      "orgEn": "Good Ads Data",
+      "org": "好廣告",
+      "orgEn": "Good Ads",
       "bio": [
         "學歷｜國立政治大學公共行政學系",
         "現任｜好廣告數據創辦人暨執行長、台灣電商顧問（TeSA）董事長、台灣青年職涯創新協會（TYCIA）理事長、東吳大學企業管理研究所兼任副教授",
@@ -339,12 +339,12 @@
       "week": 6,
       "date": "10/14",
       "title": "雙軸轉型的未來金融：ESG 永續數據如何驅動普惠金融創新",
-      "titleEn": "Twin transition in finance: how ESG data drives inclusive finance",
+      "titleEn": "The future of finance through twin transformation: ESG data driving inclusive financial innovation",
       "speaker": "林庠序",
       "speakerEn": "Lin Hsiang-Hsu",
-      "role": "創辦人兼執行長",
-      "roleEn": "Founder and CEO",
-      "org": "市民永續（City Sustainability）",
+      "role": "執行長",
+      "roleEn": "CEO",
+      "org": "市民永續股份有限公司",
       "orgEn": "City Sustainability",
       "bio": [
         "現任｜市民永續股份有限公司創辦人兼執行長",
@@ -358,36 +358,60 @@
       "abstractEn": "How FinTech and GreenTech combine: using the transparency and verifiability of IoT and blockchain, the carbon-reduction behaviour of ordinary people and small businesses becomes a credit asset with financial value — delivering the twin (digital + green) transition and inclusive finance."
     },
     {
-      "week": 11,
-      "date": "11/18",
-      "title": "兆級藍海的無息經濟學：伊斯蘭金融治理架構與全球 FinTech 創新趨勢",
-      "titleEn": "Interest-free economics: Islamic finance governance and global FinTech trends",
-      "speaker": "陳緹珍",
-      "speakerEn": "Chen Ti-Chen",
-      "role": "專案經理／研究員",
-      "roleEn": "Project Manager / Researcher",
-      "org": "台灣金融研訓院（TABF）",
-      "orgEn": "Taiwan Academy of Banking and Finance (TABF)",
-      "bio": [
-        "學歷｜國立政治大學財務管理學系、國立成功大學會計學系研究所",
-        "現任｜台灣金融研訓院研究員／專案經理",
-        "歷任｜台灣金融研訓院海外業務發展中心專案經理／副所長、致遠國際財務管理顧問（Ernst & Young）財務工程部。專研中東金融、伊斯蘭金融、國際金融情勢與跨境金融合作。"
-      ],
-      "bioEn": [
-        "Education｜Department of Finance, National Chengchi University; Graduate Institute of Accountancy, National Cheng Kung University",
-        "Current｜Researcher / Project Manager, Taiwan Academy of Banking and Finance",
-        "Previously｜Project Manager / Deputy Director, TABF Overseas Business Development Center; Financial Engineering, Ernst & Young Transaction Advisory. Focus: Middle East finance, Islamic finance, international finance and cross-border cooperation."
-      ],
-      "abstract": "全球伊斯蘭金融資產規模已突破數兆美元，其禁止利息（Riba）、倡導風險共擔與實體資產錨定的治理架構，正與現代 ESG 投資和 Web3 智能合約思潮高度接軌。本講座帶領社員解構伊斯蘭合規金融架構，並探討 Islamic FinTech 在跨境支付、綠色 Sukuk 等前沿領域的創新機遇。",
-      "abstractEn": "Global Islamic finance assets now exceed several trillion US dollars. Its governance — no interest (riba), shared risk, anchoring to real assets — aligns closely with ESG investing and Web3 smart contracts. This lecture unpacks Shariah-compliant finance and the opportunities for Islamic FinTech in cross-border payments and green sukuk."
+      "week": 10,
+      "date": "11/11",
+      "title": "穩定幣與 RWA 代幣化：機構級數位資產的市場結構、法遵框架與實務案例",
+      "titleEn": "Stablecoins and RWA tokenization: market structure, compliance frameworks and institutional digital asset use cases",
+      "speaker": "郭茂仁",
+      "speakerEn": "郭茂仁",
+      "role": "台灣業務發展負責人",
+      "roleEn": "Head of Business Development, Taiwan",
+      "org": "Zodia Custody",
+      "orgEn": "Zodia Custody",
+      "bio": [],
+      "bioEn": [],
+      "abstract": "講座詳細內容待公告。",
+      "abstractEn": "Further session details will be announced."
+    },
+    {
+      "week": 12,
+      "date": "11/25",
+      "title": "量化投資專題演講暨職涯職能分享",
+      "titleEn": "Quantitative investing: a special lecture and career skills sharing",
+      "speaker": "Jade Ho",
+      "speakerEn": "Jade Ho",
+      "role": "創辦人暨量化避險基金經理人",
+      "roleEn": "Founder and Quantitative Hedge Fund Manager",
+      "org": "Jade Capitech",
+      "orgEn": "Jade Capitech",
+      "bio": [],
+      "bioEn": [],
+      "abstract": "講座詳細內容待公告。",
+      "abstractEn": "Further session details will be announced."
+    },
+    {
+      "week": 13,
+      "date": "12/02",
+      "title": "AI 不是專案，而是旅程：企業 AI 落地、數位轉型與金融業實務案例",
+      "titleEn": "AI is a journey, not a project: enterprise AI implementation, digital transformation and financial industry cases",
+      "speaker": "陳昌裕",
+      "speakerEn": "陳昌裕",
+      "role": "資深顧問協理",
+      "roleEn": "Senior Consulting Associate Director",
+      "org": "前台灣 IBM 全球企業諮詢服務事業群",
+      "orgEn": "Formerly IBM Taiwan Global Business Services",
+      "bio": [],
+      "bioEn": [],
+      "abstract": "講座詳細內容待公告。",
+      "abstractEn": "Further session details will be announced."
     }
   ],
   "workshops": [
     {
       "week": 2,
       "date": "09/16",
-      "title": "從痛點洞察到原型驗證：AI 賦能設計思考",
-      "titleEn": "From pain points to prototypes: AI-assisted design thinking",
+      "title": "從痛點洞察到原型驗證：金融科技與 AI 賦能設計思考創新實戰課",
+      "titleEn": "From pain-point discovery to prototype validation: FinTech and AI-powered design thinking",
       "goal": "以「使用者痛點」為導向定義產品，並用 AI 工具在 2 小時內完成產品原型（MVP）驗證。",
       "goalEn": "Define a product around real user pain points and validate an MVP prototype with AI tools within two hours.",
       "modules": [
@@ -422,8 +446,8 @@
     {
       "week": 5,
       "date": "10/07",
-      "title": "從精準 KYC 到策略落地：顧問式客製化解決方案",
-      "titleEn": "From KYC to strategy: consulting-style customised solutions",
+      "title": "金融科技驅動：從精準 KYC 到顧問式策略落地實戰課",
+      "titleEn": "FinTech in practice: from precise KYC to consulting-led strategy execution",
       "goal": "掌握管理顧問公司的解題框架，從多維度客戶數據中洞察真需求，產出客製化金融策略提案。",
       "goalEn": "Learn the problem-solving frameworks used by management consultancies, read real needs from multi-dimensional customer data, and produce a customised financial strategy proposal.",
       "modules": [
@@ -456,10 +480,10 @@
       ]
     },
     {
-      "week": 10,
-      "date": "11/11",
-      "title": "從題目拆解到商模提案：AI 驅動商業競賽致勝策略",
-      "titleEn": "From case to pitch: winning business competitions with AI",
+      "week": 11,
+      "date": "11/18",
+      "title": "精準拆解與戰略佈局：金融商業競賽提案實戰課",
+      "titleEn": "Precise analysis and strategic planning: a practical workshop on financial business competition proposals",
       "goal": "針對各大金控商業競賽與 FinTech 創新創業大賽，學會評審視角的破題方法與提案流程。",
       "goalEn": "For financial-holding business competitions and FinTech startup contests: learn how judges read a case and how to run a proposal from brief to pitch.",
       "modules": [
@@ -509,28 +533,12 @@
     {
       "week": 7,
       "date": "10/21",
-      "title": "The Trading Game: A Confession",
-      "author": "Gary Stevenson",
-      "cover": "/media/books/trading-game.jpg",
-      "synopsis": "金融市場交易員回憶錄。作者出身倫敦工人階級，進入花旗銀行交易室後，從市場波動與貨幣政策中觀察財富不平等的結構性擴大，並反思高風險交易文化、金融體制與社會責任。",
-      "synopsisEn": "A trader’s memoir. From a working-class London background to Citibank’s trading floor, the author watches inequality widen through market swings and monetary policy, and reflects on high-stakes trading culture, the financial system and social responsibility.",
-      "topics": [
-        "The psychological and ethical dilemmas within high-stakes trading floors.",
-        "Can modern financial innovation and FinTech alleviate — or will they exacerbate — economic inequality?"
-      ]
-    },
-    {
-      "week": 12,
-      "date": "11/25",
-      "title": "Underground Empire: How America Weaponized the World Economy",
-      "author": "Henry Farrell & Abraham Newman",
-      "cover": "/media/books/underground-empire.jpg",
-      "synopsis": "揭示全球化背後的隱形架構。SWIFT 跨境結算、美元清算體系、海底光纜等核心節點形成全球經濟的咽喉點（Chokepoints），並可能被國家權力運用於金融制裁與地緣政治博弈。",
-      "synopsisEn": "The hidden architecture behind globalisation: SWIFT, dollar clearing and undersea cables form chokepoints of the world economy that states can use for sanctions and geopolitical leverage.",
-      "topics": [
-        "The weaponization of SWIFT and the global US dollar clearing mechanism.",
-        "Opportunities and challenges for CBDCs and blockchain-based cross-border payments in bypassing traditional financial chokepoints."
-      ]
+      "title": "Proof of Stake: The Making of Ethereum and the Philosophy of Blockchains",
+      "author": "Vitalik Buterin",
+      "cover": "/assets/books/proof-of-stake.jpg",
+      "synopsis": "本次英語讀書會選讀《Proof of Stake: The Making of Ethereum and the Philosophy of Blockchains》。",
+      "synopsisEn": "This English reading session features Proof of Stake: The Making of Ethereum and the Philosophy of Blockchains.",
+      "topics": []
     }
   ],
   "resources": [

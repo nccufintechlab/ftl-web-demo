@@ -478,10 +478,18 @@ a{ color:inherit }
   .issue__sources summary,.issue__sources li a{ display:inline-flex; align-items:center; min-height:40px }
   .info{ flex-direction:column; align-items:stretch; gap:6px }
   .info dt{ width:auto }
-  #event-list .row{ grid-template-columns:1fr auto; row-gap:8px }
+  #event-list .row{ grid-template-columns:1fr auto; row-gap:var(--s1); padding:var(--s3) var(--s4) }
   #event-list .row__date{ grid-column:1; grid-row:1; flex-direction:row; align-items:baseline; gap:10px; min-width:0 }
   #event-list .row__side{ grid-column:2; grid-row:1 }
   #event-list .row__main{ grid-column:1 / -1; grid-row:2 }
+  /* 長課名保持完整；手機詳情卡採較緊湊的閱讀層級。 */
+  :is(#workshops,#reading,#blockchain).section{ padding-block:var(--s6) }
+  :is(#lectures,#workshops,#reading) .card__more{ min-height:var(--s6) }
+  :is(#lectures,#workshops,#reading) .card--collapsible{ padding:var(--s4) }
+  :is(#lectures,#workshops,#reading) .card--collapsible > summary{ margin:calc(-1 * var(--s4)); padding:var(--s4); gap:var(--s2) }
+  :is(#lectures,#workshops,#reading) .card--collapsible[open] > summary{ margin-bottom:0; padding-bottom:0 }
+  :is(#lectures,#workshops,#reading) .card--collapsible .h2{ font-size:1.25rem; line-height:1.4 }
+
 }
 .member{ align-items:flex-start }
 .member__ava{ width:100%; aspect-ratio:4/5; border-radius:var(--r-sm); display:grid; place-items:center; overflow:hidden; background:linear-gradient(160deg,#EAF2FD,#D4E5FA); color:var(--b-ink); font-family:var(--f-en); font-size:2rem; font-weight:300 }

@@ -1,4 +1,48 @@
+# 本輪狀態 — 2026-10-08 社課課表更新
+
+- 使用者提供 115-1 新課表，更新正式 Supabase 11 筆有差異的活動及學期設定的課程組成／FAQ 中英文；16 週記錄均保留。W9／W16 為原有停課／考試週，未刪除。週次、日期、獎勵資格依使用者表格；W14 校友與雞尾酒會合併為同一活動，沿用 social 類型。
+- 前台現在 5 場講座、3 場工作坊、2 場讀書會；加上 W14 共 11 堂計入獎勵。W7 改 Proof of Stake、W10 郭茂仁、W11 競賽工作坊、W12 Jade Ho、W13 陳昌裕。新講者未提供的簡介留空、詳細內容待公告，沒有沿用舊講者簡介。既有社費、獎勵金金額與結算規則未改。
+- 首頁與關於頁同步 5 位講者／2 本書，活動頁摘要改依內容自動計數。手機完整長標題讓既有「收合後少於十屏」測試失敗（8849 > 8120），局部收緊課表與詳情卡留白／標題後，原測試通過。桌機視覺沿用 Glass V6，不改動效。
+- 資料流：Supabase events/settings → 既有 Pages workflow 讀取已發布資料 → 靜態官網。正式 SQL 以 transaction + 預期舊 data/updated_at 檢查避免覆蓋同時修改。讀回逐欄比對 id/semester/week/date/kind/data/status/position/deleted_at 全相同，settings 全 data 相同。正常後台活動清單已顯示更新。
+- 備份與 SQL 位於父目錄 proof：courses-before-20261008.json、settings-before-20261008.json、update-courses-and-settings-20261008.sql、courses-production-readback.json。皆不含密鑰。修改已存正式資料庫；網站發布待下列追蹤更新。
+- 工作區：course-schedule，分支 codex/update-course-schedule，來源 main 38ad546。managed worktree tool 誤指外層空 repo 且 main 無效，改用內層 site 的 git worktree 建立隔離工作區；原 site 的後台修復未提交內容保留。未將其 AdminOverview／Edge Function 程式混入本輪提交。
+- QA 角度：社員查日期、講者、計入資格；幹部核對後台與前台來源一致；手機訪客檢查長課名與分類／詳情。實測講座篩選、新講座展開、英文切換正常，console errors 空。此輪內容及排版修改未改登入／權限／付費流程，未做正式攻擊測試。
+- 畫面兩輪桌機1280×800、手機375×812檢查，最終 proof/courses-final-desktop.png、proof/courses-final-mobile.png（絕對根目錄 /Users/frank/Documents/ChatGPT/ftl-website）。層次：主標與課名清楚；留白：手機已修過長問題；字體：沿用 Huninn／Outfit；配色：沿用藍色系；對齊：卡片／文字左右一致；響應式：375px scrollWidth=375；狀態：分類、詳情展開、語言切換通過，既有空狀態由回歸測試涵蓋；動效：沿用既有進場／hover，沒有新增。impeccable detector 對修改 TSX/CSS 無發現。
+- 檢查：npm test（型別、lint、內部連結、35 unit）通過，6 既有 lint warnings；build 與自訂網域匯出檢查通過。手機原失敗測試重跑4/4通過；全前台回歸 98 passed、22 skipped（依裝置條件）。測試 Supabase 仍暫停，本輪未修改也未宣稱驗過後台權限／重建函式。
+- 尚未解決的獨立事項：後台發布按鈕的 GITHUB_TOKEN 對新組織仍403，需使用者／組織 owner 完成權杖授權；本次使用既有 GitHub 發布流程，不變更密鑰或管理員權限。
+
 # HANDOFF — Glass V6 改版
+
+## 前後台完整修復 — 2026-10-08（進行中，等待 GitHub 登入）
+
+### 最新接續點
+
+- 使用者已登入 GitHub，但目前帳號為 Frankfangcode。Fine-grained token 清單僅有個人 nccu-bus（expired，未動）；開啟 new 表單並展開 Resource owner，載入完只顯示 Frankfangcode（1 result），沒有 nccufintechlab。尚未建立／輸入／更換任何權杖或變更權限。需使用建立社團組織的帳號檢查組織授權；備援為組織擁有者處理成員／PAT policy，不自行擴權。
+- `gh api user/memberships/orgs/nccufintechlab` 回 404 並提示現有 CLI token 缺 admin:org；此結果**不能**證明不是成員，未執行 auth refresh 擴權。只有 UI owner 選單不可選社團組織是已驗證事實。
+- 證據：`/Users/frank/Documents/ChatGPT/ftl-website/proof/github-resource-owner-unavailable.png`。in-app tab 10 保留 Resource owner 選單；tab 7 Supabase、tab 9 官網後台保留。下一個使用者操作：改登入建立 nccufintechlab 組織的 GitHub 帳號，再回覆；不要要求密碼、OTP 或 token 貼聊天。
+
+- 工作區 `/Users/frank/Documents/ChatGPT/ftl-website/site`，分支 `codex/restore-admin-publishing`，來源 `38ad546`。本輪程式修改尚未 commit／合併／push，勿覆蓋。
+- 使用者已授權暫停 `ftl-web-test`；已確認 PAUSED，正式專案 `xesxfcqtbzmlanyvdeys` 已恢復連線，ftl-casepool 未動。沒有付費、刪資料或改管理員名單。
+- 正式 Supabase Auth Site URL 與新增精確 redirect allowlist 均為 `https://nccufintechlab.tw/admin/`。原 Google 登入先回跳舊 GitHub 404，修正後實際 Google 登入成功，以社團 Gmail 進後台，讀到週報／活動／資源／合作對象。旧 redirect allowlist 尚保留，未擴 wildcard。
+- 正常流程驗收：TABEI 合作對象原樣儲存成功，重新載入內容相同；按發布重建回 HTTP 502。沒有建立假資料或改公開文案。
+- 已核對 Supabase 線上 trigger-rebuild 完整程式與本機一致。將 REPO 從 Hunter20041004 改 nccufintechlab，原 bearer／admins 驗證保持不變。使用者明確核可「允許這次修正並實際驗證」，豁免暫停測試專案造成的完整後台測試缺口。
+- 已透過 Supabase Code editor 部署新 REPO，並加入不含 token 的錯誤診斷（repo/status/message）。編輯器全文複製比對後才部署，避免 Monaco 局部替換。線上與本機 source 同步；此為已部署但未提交的變更。
+- **真正剩餘阻塞有證據**：2026-10-08 09:02:07 Supabase Logs 顯示 `GitHub rebuild dispatch failed { repo: "nccufintechlab/ftl-web-demo", status: 403, message: "Resource not accessible by personal access token" }`。重建尚未成功觸發，不能宣稱後台全好。需要處理 Supabase 現有 GITHUB_TOKEN 的新組織授權，不能拿本機 gh token 偷換或輸出任何密鑰。
+- 已開 GitHub `https://github.com/settings/personal-access-tokens`，in-app tab 10 停在登入頁；下一步由使用者登入有權管理 nccufintechlab 的個人 GitHub 帳號，再檢查可用細粒度權杖。創建／擴權前需明確範圍確認；新密鑰輸入由使用者操作，不貼聊天。官方 repo dispatch 需 Contents write，查執行狀態需 Actions read；僅選 ftl-web-demo，不授權整個帳號。
+- 尚待驗證／發布的局部修改：AdminOverview 正式站 href 與標籤改新網域；已按全域規則建立 PRODUCT.md（依本輪使用者指示與既有 README／STATUS／HANDOFF 記錄，不改視覺）。impeccable context 已跑，detect 對該 TSX 回 `[]`；沒有新動效。此 UI 修改尚未做兩輪桌機／手機截圖，尚未上線。
+- 本輪驗證：npm test 通過（35 unit、typecheck／lint／內部連結，6 既有 lint warnings）；Edge Function TypeScript strip + vm syntax check 通過。build 最初受沙箱埠限制失敗，許可環境重跑仍沿用失敗快取；將 .next 保留到 `/tmp/ftl-next-failed-20261008` 後重跑成功（24 頁），custom-domain 匯出測試通過。未更改套件與建置設定。
+- 尚未重跑完整後台自動測試：測試專案已暫停。正式環境僅做正常使用者流程驗收，未做未授權攻擊模擬。登入與資料存取控制 source 未改；不能把先前測試通過當成本輪完整測試通過。
+- 待收尾：修 GITHUB_TOKEN 授權 → 真實後台發布成功且 GitHub run 成功從正式 Supabase 拉資料 → 驗收官網與後台 → 完成 UI 截圖與必要檢查 → commit／main 檢查／push／跟蹤既有部署（不要重複觸發）→ 更新此紀錄。tsconfig.tsbuildinfo 為本輪測試產生差異，提交前還原該生成檔。
+
+- 使用者新授權：前台與後台都要修好；涵蓋正式 Supabase 連線、登入回跳、新組織的內容發布鏈與驗收。保留既有資料與權限，不另建專案、不購買方案。
+- 開工來源 main `38ad546`，工作區乾淨；本輪目前僅更新本交接記錄，尚未變更產品程式。
+- 正式 `/admin/` 登入畫面可正常載入；實際按 Google 登入後，目標為 `xesxfcqtbzmlanyvdeys.supabase.co/auth/v1/authorize`，redirect_to 已正確指向 `https://nccufintechlab.tw/admin/`，但出現 ERR_NAME_NOT_RESOLVED。這證明阻塞位於 Supabase 網域連線，不是後台頁面路徑。
+- 確認 source：`supabase/functions/trigger-rebuild/index.ts` 仍指定 `Hunter20041004/ftl-web-demo`；後台概覽仍連舊正式站。需核對 Supabase 已部署函式與 GitHub token 授權後修復；尚未直接更動線上設定。
+- 已讀 product-security-qa 詳規，本輪登入／權限邊界需完整 QA，安全模擬限隔離測試環境。正式站僅正常登入與發布流程驗收，不擴大攻擊測試。
+- 使用者已登入 Supabase Dashboard。正式專案顯示 Paused，頁面確認資料、備份及 storage objects 安全。按 Resume 後出現免費啟用專案額度限制：社團帳號已達 2 個免費 active projects。
+- 已確認組織 `政大金融創新實驗室`（mdnsrajztojoufrnuqfg）有三個專案：ftl-casepool（bipdsaqusibgtahvvuxj，Active）、ftl-web-test（bpadohdiuvbimvkwpecv，Active）、正式專案 nccufintechlab@gmail.com's Project（xesxfcqtbzmlanyvdeys，Paused）。
+- 已向使用者提出具體選項：暫停 ftl-web-test（保留資料但影響自動測試），恢復正式專案；或保留兩個 active 專案並查看付費方案。使用者已回覆「好」明確授權暫停 ftl-web-test 以恢復正式官網。已從測試專案 Settings → Pause project 確認執行，Dashboard 狀態 PAUSING；尚未付費或刪除資料。
+- 下一步：使用者回覆已登入 → 讀取專案狀態及組織歸屬 → 修復既有專案連線 → 核對 Google redirect、新 repo 發布權限及函式 → 測試環境驗證權限與發布 → 正常拉最新內容部署 → 正式登入與前台验收。
 
 ## 本輪狀態 — 2026-10-08 自訂網域資源路徑修復
 

@@ -61,9 +61,9 @@ export function AboutPage() {
             <div className="panel reveal" style={{ maxWidth: 860 }}>
                 <h2 className="h2" data-en="How a semester works" suppressHydrationWarning>一個學期怎麼運作</h2>
                 <ul className="bullets-plain mt-4">
-                  <li><b data-en="Lectures｜" suppressHydrationWarning>講座｜</b><span data-en="Three industry speakers per semester, one each from a different sector." suppressHydrationWarning>每學期三位業界講者，各來自不同領域。</span></li>
+                  <li><b data-en="Lectures｜" suppressHydrationWarning>講座｜</b><span data-en="Five industry speakers this semester, one each from a different sector." suppressHydrationWarning>本學期五位業界講者，各來自不同領域。</span></li>
                   <li><b data-en="Workshops｜" suppressHydrationWarning>工作坊｜</b><span data-en="Three hands-on sessions led by officers and guest instructors, each producing something concrete (a prototype, a proposal, a pitch deck)." suppressHydrationWarning>三場由幹部群與客座講師帶領的實作，每場都有產出：原型、提案、簡報。</span></li>
-                  <li><b data-en="English reading club｜" suppressHydrationWarning>英語讀書會｜</b><span data-en="Three books, discussed entirely in English." suppressHydrationWarning>三本書，全程英文討論。</span></li>
+                  <li><b data-en="English reading club｜" suppressHydrationWarning>英語讀書會｜</b><span data-en="Two books, discussed entirely in English." suppressHydrationWarning>兩本書，全程英文討論。</span></li>
                   <li><b data-en="Networking｜" suppressHydrationWarning>交流｜</b><span data-en="Alumni networking, a cocktail party and semester dinners." suppressHydrationWarning>校友 networking 會、雞尾酒會、期中與期末聚餐。</span></li>
                 </ul>
                 <a className="link-arrow mt-5" href={withBasePath("/events/#lectures")}><span data-en="See this semester’s courses" suppressHydrationWarning>看這學期的課程</span><Icon name="arrow-right" /></a>

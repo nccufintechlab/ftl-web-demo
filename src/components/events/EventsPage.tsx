@@ -31,9 +31,9 @@ export function EventsPage() {
             <p className="lead" data-en="09/09 – 12/23. Sessions marked ✓ count toward the attendance reward." suppressHydrationWarning>9/09 – 12/23。標示「計入」的場次計入出席獎勵金。</p>
             <div className="chips mt-5">
               <a className="chip" href="#calendar" data-en="Calendar" suppressHydrationWarning>行事曆</a>
-              <a className="chip" href="#lectures" data-en="Lectures ×3" suppressHydrationWarning>講座 ×3</a>
-              <a className="chip" href="#workshops" data-en="Workshops ×3" suppressHydrationWarning>工作坊 ×3</a>
-              <a className="chip" href="#reading" data-en="English reading ×3" suppressHydrationWarning>英語讀書會 ×3</a>
+              <a className="chip" href="#lectures" data-en={`Lectures ×${lectures.length}`} suppressHydrationWarning>{`講座 ×${lectures.length}`}</a>
+              <a className="chip" href="#workshops" data-en={`Workshops ×${workshops.length}`} suppressHydrationWarning>{`工作坊 ×${workshops.length}`}</a>
+              <a className="chip" href="#reading" data-en={`English reading ×${books.length}`} suppressHydrationWarning>{`英語讀書會 ×${books.length}`}</a>
               <a className="chip" href="#blockchain" data-en="Blockchain series" suppressHydrationWarning>區塊鏈基礎系列</a>
             </div>
           </div>
