@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-17T06:30:56.105Z",
+  "generatedAt": "2026-10-08T02:29:43.933Z",
   "semester": {
     "code": "115-1",
     "range": "2026.09 – 2026.12",
@@ -10,6 +10,92 @@
     "conceptEn": "Expert lectures → hands-on workshops → English reading & discussion → alumni and member networking, in rotation."
   },
   "membership": {
+    "types": [
+      {
+        "name": "專案生",
+        "en": "Project member",
+        "fee": "3,000 元／學期",
+        "feeEn": "NT$3,000 / semester",
+        "how": "書面審查＋團體面試",
+        "howEn": "Written screening + group interview",
+        "perks": "全部社課與交流活動、社課資源（簡報、錄影、閱讀材料）、LINE Bot 與 Discord 社群。適用出席獎勵金。",
+        "perksEn": "All sessions and socials, session materials (slides, recordings, readings), LINE Bot and Discord. Eligible for the attendance reward."
+      },
+      {
+        "name": "旁聽生",
+        "en": "Auditor",
+        "fee": "1,500 元／學期",
+        "feeEn": "NT$1,500 / semester",
+        "how": "免書審，LINE Bot 隨時繳費入社",
+        "howEn": "No screening; join any time by paying through the LINE Bot",
+        "perks": "旁聽生資格與權益範圍另行公告；不適用出席獎勵金。",
+        "perksEn": "Auditor entitlements to be announced; not eligible for the attendance reward."
+      }
+    ],
+    "timeline": [
+      {
+        "date": "09/07 – 09/17",
+        "zh": "書審填寫",
+        "en": "Applications",
+        "done": false
+      },
+      {
+        "date": "09/18",
+        "zh": "公布書審結果並確認面試時間",
+        "en": "Screening results; confirm interview slot",
+        "done": false
+      },
+      {
+        "date": "09/19 – 09/20",
+        "zh": "（六、日）晚上面試",
+        "en": "Interviews, Sat–Sun evening",
+        "done": false
+      },
+      {
+        "date": "09/21",
+        "zh": "公布專案生結果",
+        "en": "Project-member results",
+        "done": false
+      }
+    ],
+    "reward": {
+      "headline": "入社 3,000，全勤領回 2,000。",
+      "headlineEn": "Pay NT$3,000; full attendance gets NT$2,000 back.",
+      "tiers": [
+        [
+          "11 堂（全勤）",
+          "2,000 元",
+          "11 (full attendance)",
+          "NT$2,000"
+        ],
+        [
+          "9–10 堂",
+          "1,000 元",
+          "9–10",
+          "NT$1,000"
+        ],
+        [
+          "7–8 堂",
+          "500 元",
+          "7–8",
+          "NT$500"
+        ],
+        [
+          "6 堂以下",
+          "0 元",
+          "6 or fewer",
+          "NT$0"
+        ]
+      ],
+      "countedSessions": "計入的 11 堂：5 場講座、3 場工作坊、2 場英語讀書會、1 場金融科技校友 Networking × 學期社員雞尾酒會。迎新、期中與期末聚餐不計入。",
+      "countedSessionsEn": "The 11 counted sessions: 5 lectures, 3 workshops, 2 English reading sessions and 1 combined FinTech alumni networking and semester members cocktail party. Welcome night and the two dinners do not count.",
+      "attendance": "以 LINE Bot 當堂簽到為準。開始前 15 分鐘至開始後 30 分鐘內簽到都算出席；超過 30 分鐘不計。因病、面試、重要考試等不可抗力缺席，可事前申請補作業認列，每學期一次。",
+      "attendanceEn": "Attendance is the LINE Bot check-in. Checking in from 15 minutes before to 30 minutes after the start counts; later does not. For illness, interviews or major exams you may apply in advance to make up with an assignment, once per semester.",
+      "payout": "12/10 雞尾酒會後結算並推播，12/10–12/12 異議期，12/18 前匯入登記帳戶。",
+      "payoutEn": "Settled and pushed after the 12/10 cocktail party; objections 12/10–12/12; transferred to your registered account by 12/18.",
+      "points": "另設積分獎金：學期積分第一名 4,000 元（由贊助款支出）。積分項目包含社課分享／提問、個人任務、專案里程碑、期末發表、活動協助等；每月 1 日 Bot 推播 Top 5。積分與出席獎勵金互不掛鉤。",
+      "pointsEn": "A separate points prize: NT$4,000 for the top scorer of the semester (funded by sponsorship). Points come from sharing and questions in sessions, individual tasks, project milestones, the final presentation and event help; the Bot pushes the top 5 on the 1st of each month. Points do not affect the attendance reward."
+    },
     "faq": [
       [
         "社費 3,000 元包含什麼？",
@@ -48,105 +134,19 @@
         "Auditors skip screening, can join any time for NT$1,500 and are not eligible for the reward; project members go through screening and an interview, pay NT$3,000 and are eligible."
       ]
     ],
-    "note": "以上依「115-1 社費與出席獎勵金辦法 v2.2」，9/9 迎新社員大會表決通過後生效。",
-    "types": [
-      {
-        "en": "Project member",
-        "fee": "3,000 元／學期",
-        "how": "書面審查＋團體面試",
-        "name": "專案生",
-        "feeEn": "NT$3,000 / semester",
-        "howEn": "Written screening + group interview",
-        "perks": "全部社課與交流活動、社課資源（簡報、錄影、閱讀材料）、LINE Bot 與 Discord 社群。適用出席獎勵金。",
-        "perksEn": "All sessions and socials, session materials (slides, recordings, readings), LINE Bot and Discord. Eligible for the attendance reward."
-      },
-      {
-        "en": "Auditor",
-        "fee": "1,500 元／學期",
-        "how": "免書審，LINE Bot 隨時繳費入社",
-        "name": "旁聽生",
-        "feeEn": "NT$1,500 / semester",
-        "howEn": "No screening; join any time by paying through the LINE Bot",
-        "perks": "旁聽生資格與權益範圍另行公告；不適用出席獎勵金。",
-        "perksEn": "Auditor entitlements to be announced; not eligible for the attendance reward."
-      }
-    ],
-    "reward": {
-      "tiers": [
-        [
-          "11 堂（全勤）",
-          "2,000 元",
-          "11 (full attendance)",
-          "NT$2,000"
-        ],
-        [
-          "9–10 堂",
-          "1,000 元",
-          "9–10",
-          "NT$1,000"
-        ],
-        [
-          "7–8 堂",
-          "500 元",
-          "7–8",
-          "NT$500"
-        ],
-        [
-          "6 堂以下",
-          "0 元",
-          "6 or fewer",
-          "NT$0"
-        ]
-      ],
-      "payout": "12/10 雞尾酒會後結算並推播，12/10–12/12 異議期，12/18 前匯入登記帳戶。",
-      "points": "另設積分獎金：學期積分第一名 4,000 元（由贊助款支出）。積分項目包含社課分享／提問、個人任務、專案里程碑、期末發表、活動協助等；每月 1 日 Bot 推播 Top 5。積分與出席獎勵金互不掛鉤。",
-      "headline": "入社 3,000，全勤領回 2,000。",
-      "payoutEn": "Settled and pushed after the 12/10 cocktail party; objections 12/10–12/12; transferred to your registered account by 12/18.",
-      "pointsEn": "A separate points prize: NT$4,000 for the top scorer of the semester (funded by sponsorship). Points come from sharing and questions in sessions, individual tasks, project milestones, the final presentation and event help; the Bot pushes the top 5 on the 1st of each month. Points do not affect the attendance reward.",
-      "attendance": "以 LINE Bot 當堂簽到為準。開始前 15 分鐘至開始後 30 分鐘內簽到都算出席；超過 30 分鐘不計。因病、面試、重要考試等不可抗力缺席，可事前申請補作業認列，每學期一次。",
-      "headlineEn": "Pay NT$3,000; full attendance gets NT$2,000 back.",
-      "attendanceEn": "Attendance is the LINE Bot check-in. Checking in from 15 minutes before to 30 minutes after the start counts; later does not. For illness, interviews or major exams you may apply in advance to make up with an assignment, once per semester.",
-      "countedSessions": "計入的 11 堂：5 場講座、3 場工作坊、2 場英語讀書會、1 場金融科技校友 Networking × 學期社員雞尾酒會。迎新、期中與期末聚餐不計入。",
-      "countedSessionsEn": "The 11 counted sessions: 5 lectures, 3 workshops, 2 English reading sessions and 1 combined FinTech alumni networking and semester members cocktail party. Welcome night and the two dinners do not count."
-    },
     "payment": [
       "錄取通知後加入官方 LINE Bot，完成基本資料填寫。",
       "Bot 推播匯款資訊（金額、備註填學號）。",
       "匯款後於 Bot 回覆「後五碼 xxxxx」。",
       "財務組核對後，Bot 通知入社成功並發送社群連結。"
     ],
-    "timeline": [
-      {
-        "en": "Applications",
-        "zh": "書審填寫",
-        "date": "09/07 – 09/17",
-        "done": false
-      },
-      {
-        "en": "Screening results; confirm interview slot",
-        "zh": "公布書審結果並確認面試時間",
-        "date": "09/18",
-        "done": false
-      },
-      {
-        "en": "Interviews, Sat–Sun evening",
-        "zh": "（六、日）晚上面試",
-        "date": "09/19 – 09/20",
-        "done": false
-      },
-      {
-        "en": "Project-member results",
-        "zh": "公布專案生結果",
-        "date": "09/21",
-        "done": false
-      }
-    ],
     "paymentEn": [
       "After the admission notice, add the official LINE Bot and fill in your basic details.",
       "The Bot sends the transfer details (amount; put your student ID in the memo).",
       "After transferring, reply to the Bot with the last five digits.",
       "Once the finance team confirms, the Bot notifies you and sends the community links."
-    ]
+    ],
+    "note": "以上依「115-1 社費與出席獎勵金辦法 v2.2」，9/9 迎新社員大會表決通過後生效。"
   },
   "calendar": [
     {
