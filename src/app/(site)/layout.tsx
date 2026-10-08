@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 const basePath = (process.env.NEXT_PUBLIC_BASE_PATH ?? "").replace(/\/$/, "");
-const siteUrl = `https://hunter20041004.github.io${basePath || "/ftl-web-demo"}`;
+const siteUrl = "https://nccufintechlab.tw";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl.endsWith("/") ? siteUrl : `${siteUrl}/`),

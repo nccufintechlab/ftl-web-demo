@@ -19,3 +19,22 @@ test("custom-domain pages reference assets and navigation present in the export"
     }
   }
 });
+
+test("social previews use the live domain and a bundled image", () => {
+  for (const page of ["index.html", "events/index.html"]) {
+    const html = readFileSync(join("out", page), "utf8");
+    for (const key of ["og:image", "twitter:image"]) {
+      const tag = [...html.matchAll(/<meta\s[^>]*>/g)]
+        .map(([tag]) => tag)
+        .find((tag) => tag.includes(`="${key}"`));
+      assert.ok(tag, `${page}: missing ${key}`);
+      const imageUrl = /content="([^"]+)"/.exec(tag)?.[1];
+      assert.equal(imageUrl, "https://nccufintechlab.tw/assets/og.png", `${page}: ${key}`);
+      assert.ok(existsSync(join("out", new URL(imageUrl).pathname)));
+    }
+  }
+  const sitemap = readFileSync("out/sitemap.xml", "utf8");
+  const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => new URL(match[1]));
+  assert.ok(urls.length > 0);
+  assert.ok(urls.every((url) => url.origin === "https://nccufintechlab.tw"));
+});

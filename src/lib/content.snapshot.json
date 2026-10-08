@@ -384,10 +384,20 @@
       "roleEn": "Founder and Quantitative Hedge Fund Manager",
       "org": "Jade Capitech",
       "orgEn": "Jade Capitech",
-      "bio": [],
-      "bioEn": [],
-      "abstract": "講座詳細內容待公告。",
-      "abstractEn": "Further session details will be announced."
+      "bio": [
+        "現任｜Jade Capitech 創辦人暨量化避險基金經理人、創業者",
+        "學歷｜金融工程碩士，資訊科學與財務金融雙學位",
+        "經歷｜橫跨管理、研發與金融，具新創、量化交易、區塊鏈及避險基金開發實務經驗",
+        "專長｜量化投資、機器學習、區塊鏈、專案管理、商業策略"
+      ],
+      "bioEn": [
+        "Current｜Founder and Quantitative Hedge Fund Manager, Jade Capitech; entrepreneur",
+        "Education｜Master’s in Financial Engineering; dual degrees in Computer Science and Finance",
+        "Experience｜Management, R&D and finance, including startups, quantitative trading, blockchain and hedge fund development",
+        "Expertise｜Quantitative investing, machine learning, blockchain, project management and business strategy"
+      ],
+      "abstract": "Jade Ho 專注於金融科技與量化投資，結合產品、專案與投資管理經驗，將構想轉化為實際成果。目前正將量化資產管理事業拓展至香港，運用金融工程設計客製化投資策略。",
+      "abstractEn": "Jade Ho works in FinTech and quantitative investing, combining product, project and investment management to turn ideas into practical results. Jade is currently expanding a quantitative asset management venture to Hong Kong, applying financial engineering to develop tailored investment strategies."
     },
     {
       "week": 13,

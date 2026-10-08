@@ -1,3 +1,13 @@
+# 本輪狀態 — 2026-10-08 Jade Ho 簡介與分享預覽
+
+- 使用者提供 Jade Ho 個人檔案，要求更新講者介紹，並問 Discord 網址預覽為何缺圖。以專業資料整理中英文摘要及現任／學歷／經歷／專長；未刊登宗教與婚禮連結，未將學校名稱擅自綁定到特定學位。講題、日期、獎勵資格不變。
+- 根因已確認：正式首頁 og:image 與 twitter:image 仍指向 https://hunter20041004.github.io/ftl-web-demo/assets/og.png（HTTP404）；新網域 /assets/og.png 為HTTP200 image/png，原圖1200×630。修 metadataBase 為 nccufintechlab.tw，sitemap 同步正式網域；沿用既有品牌分享圖，不改爬蟲索引政策。
+- 新增實際匯出檔測試：首頁與活動頁的 og:image/twitter:image 必須指向可落地的新網域圖檔，sitemap 網域一致。先驗舊匯出失敗，再修改、build、重跑2項匯出測試通過。
+- 正式 Supabase W12 已以舊資料／updated_at 條件更新，重新讀回中英文摘要與bio均相同。備份／預期／SQL／讀回在父目錄 proof/jade-before-20261008.json、jade-after-20261008.json、update-jade-20261008.sql、jade-production-readback.json。沒有密鑰、權限或結構變更。
+- 簡短QA：社員打開講者詳情並切換英文；內容編輯角度核對使用者提供的學經歷；分享接收者角度檢查圖片地址與實際HTTP。兩輪1280×800／375×812證據 proof/jade-round{1,2}-{desktop,mobile}.png。層次、留白、字體、藍色配色、對齊沿用既有；375px無橫向溢出；中英文詳情／關閉／鍵盤focus正常；長英文可垂直捲動；原有進場保留，無新增動效。impeccable detector無發現。本輪未改敏感流程，沒有正式安全攻擊測試。
+- 範圍延續已核准的課表發布及自訂網域修復；沿用使用者對暫停後台測試環境的既有例外，不重複索取權杖或批准。不能宣稱後台發布按鈕已修好，也不能宣稱Discord舊訊息已刷新；只能驗證網站端圖片可取用。
+- 分支 codex/jade-bio-share-preview，沿用乾淨的 course-schedule 工作區，來源 be1e360；site工作區原有修復差異未動。本輪測試與部署結果待下面補齊。
+
 # 本輪狀態 — 2026-10-08 社課課表更新
 
 - 使用者提供 115-1 新課表，更新正式 Supabase 11 筆有差異的活動及學期設定的課程組成／FAQ 中英文；16 週記錄均保留。W9／W16 為原有停課／考試週，未刪除。週次、日期、獎勵資格依使用者表格；W14 校友與雞尾酒會合併為同一活動，沿用 social 類型。
