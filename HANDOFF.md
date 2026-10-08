@@ -8,6 +8,13 @@
 - 靜態文案依testing-policy不另寫瑣碎文字unit。全前台初跑90通過、8失敗、22略過：兩個既有測試硬編碼「生成式AI/generative AI」舊內容，各四裝置；實際詳情與翻譯已是本轮核對的內容，更新預期且保留流程檢查。兩個過時預期各獨立修正、各四裝置重測4/4通過；最終npm test通過（35 unit、型別、lint、連結，6既有warnings）、2項匯出檢查通過、全前台98 passed／22 skipped。紀錄/tmp/speakers-final-{test,visual}.log、/tmp/speakers-export.log；測試後未改產品內容。
 - build初次沙箱禁止通訊埠失敗，保留.next到/tmp/ftl-speakers-next-sandbox-failed後於允許環境重建通過。沿用已核可課表發布對暫停後台測試專案的例外，未變更權杖/權限，不能宣稱後台發布按鈕403已修。
 
+### 其他講者上線結果
+
+- 內容提交2fc70c8，main重跑npm test（35 unit）、build、2項匯出檢查與前台回歸（98 passed、22 skipped）均通過；紀錄/tmp/speakers-main-{test,build,export,visual}.log。6項既有lint warnings未改。無額外後台測試成功聲明。
+- push後確認origin/main包含2fc70c8c6cf7f59b0e411d4010a8fd2046f37cb7；Pages run37720932657成功。部署正常從Supabase拉內容，自動提交28d1df1僅改generatedAt，所有內容與本輪預期一致。
+- 正式 https://nccufintechlab.tw/events/ 實際逐一打開W3/W6/W10/W13，均見新介紹；另切英文驗證W10新導讀，console errors空。證據/Users/frank/Documents/ChatGPT/ftl-website/proof/speakers-live.png。預覽服務已停止、臨時tab關閉、瀏覽器尺寸已還原。
+- 教學已交付：內容用途／使用者詳情體驗／資料库到發布流程／來源與導讀界線／只改副本的風險／無新增費用權限／驗證證據／後台測試暫停與403限制。套用product-owner-teaching、systematic-debugging、verification-before-completion、impeccable、emil-design-eng、computer-use、built-in-browser；既有失敗測試依TDD紀律逐項修正並確認綠燈，沒有新增產品邏輯。
+
 # 本輪狀態 — 2026-10-08 Jade Ho 簡介與分享預覽
 
 - 使用者提供 Jade Ho 個人檔案，要求更新講者介紹，並問 Discord 網址預覽為何缺圖。以專業資料整理中英文摘要及現任／學歷／經歷／專長；未刊登宗教與婚禮連結，未將學校名稱擅自綁定到特定學位。講題、日期、獎勵資格不變。
