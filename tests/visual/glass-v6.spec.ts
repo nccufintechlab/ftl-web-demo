@@ -83,7 +83,7 @@ test.describe("glass-v6 homepage", () => {
     await page.locator('[data-event="3"]').click();
     const dialog = page.locator("dialog[open] .event-detail");
     await expect(dialog).toContainText("陳顯立");
-    await expect(dialog).toContainText("生成式 AI");
+    await expect(dialog).toContainText("依政大活動報導");
     await page.keyboard.press("Escape");
     await page.locator('.filter[data-filter="reading"]').click();
     await page.locator('[data-event="4"]').click();
@@ -151,7 +151,7 @@ test.describe("glass-v6 homepage", () => {
     await expect(page.locator(".mtabs #timeline h3")).toHaveText("No screening");
     await page.goto(`${basePath}/events/`);
     await page.waitForLoadState("networkidle");
-    await expect(page.locator(".card--lecture .card__body").first()).toContainText("generative AI");
+    await expect(page.locator(".card--lecture .card__body").first()).toContainText("According to NCCU’s event report");
   });
 
   test("projects wall opens a deck in a dialog and pages with buttons and arrow keys", async ({ page }) => {

@@ -323,17 +323,19 @@
       "org": "好廣告",
       "orgEn": "Good Ads",
       "bio": [
+        "現任｜好廣告數據董事長、潮網科技產品策略長",
         "學歷｜國立政治大學公共行政學系",
-        "現任｜好廣告數據創辦人暨執行長、台灣電商顧問（TeSA）董事長、台灣青年職涯創新協會（TYCIA）理事長、東吳大學企業管理研究所兼任副教授",
-        "歷任｜鴻海科技集團富盈數據董事長兼執行長、鴻海富奇想商務長、燦坤 3C 行銷暨電商營運長、特力零售集團網路服務部協理、電通集團凱絡媒體首席商業顧問"
+        "經歷｜曾任鴻海科技集團富盈數據董事長兼執行長、燦坤 3C 營運長、特力零售集團電子商務部協理",
+        "專長｜數據應用、數位商務、廣告策略與商業模式創新"
       ],
       "bioEn": [
+        "Current｜Chairman of Good Ads Data; Chief Product Strategy Officer at Wavenet",
         "Education｜Department of Public Administration, National Chengchi University",
-        "Current｜Founder and CEO, Good Ads Data; Chairman, Taiwan E-commerce Service Association (TeSA); Chairman, Taiwan Youth Career Innovation Association (TYCIA); Adjunct Associate Professor, Graduate School of Business Administration, Soochow University",
-        "Previously｜Chairman and CEO of Foxconn’s Fuying Data; CCO of Foxconn’s Fuqixiang; COO of Marketing and E-commerce, Tsann Kuen 3C; Senior Manager of Online Services, Test Rite Retail Group; Chief Business Consultant, Carat (Dentsu)"
+        "Experience｜Former Chairman and CEO of Foxconn’s Fuying Data; COO at Tsann Kuen 3C; e-commerce management at Test Rite Retail Group",
+        "Expertise｜Data applications, digital commerce, advertising strategy and business model innovation"
       ],
-      "abstract": "在生成式 AI 與推薦演算法席捲各行各業的當下，單純的技術應用已不足以構築競爭壁壘。本講座聚焦於企業與個人如何重新定義價值交付路徑，穿透演算法黑盒建立長期「信任資產」，將 AI 技術轉化為具備可持續獲利能力的商業模式閉環。",
-      "abstractEn": "As generative AI and recommendation algorithms sweep every industry, applying the technology alone no longer builds a moat. This lecture looks at how companies and individuals redefine how value is delivered, see through the algorithmic black box to build long-term “trust assets”, and turn AI into a business model that keeps earning."
+      "abstract": "從 AI 與演算法如何改變商業競爭出發，回到信任、需求與價值交換的基本問題。依政大活動報導，本場分享以「聚集點經濟」說明如何讓需求匯聚，並透過互動與分組討論，思考先建立影響力與商業模式、再用科技放大能力的實踐路徑。",
+      "abstractEn": "Explore how AI and algorithms reshape competition while trust, demand and value exchange remain central to business. According to NCCU’s event report, this session examined how to bring demand together, using discussion and group activities to explore building influence and a business model before scaling capabilities with technology."
     },
     {
       "week": 6,
@@ -347,15 +349,19 @@
       "org": "市民永續股份有限公司",
       "orgEn": "City Sustainability",
       "bio": [
-        "現任｜市民永續股份有限公司創辦人兼執行長",
-        "專業經歷｜深耕空間資訊決策系統、智慧城市與永續科技（GreenTech）。創立市民永續並推出「全民碳集（個人碳存摺）」平台，攜手國立成功大學及上海商業儲蓄銀行等機構，運用區塊鏈去中心化帳本技術將大眾綠色消費與生活減碳行為「數據資產化」。"
+        "現任｜市民永續股份有限公司創辦人暨執行長",
+        "經歷｜具資訊與雲端服務背景，於 2018 年投入區塊鏈創業，推動企業資源共享與永續應用",
+        "實務｜推動「全民碳集／個人碳存摺」，探索將日常永續行動轉化為可記錄、可運用的碳數據資產",
+        "關注領域｜區塊鏈、永續消費、碳數據與金融服務的結合"
       ],
       "bioEn": [
         "Current｜Founder and CEO, City Sustainability Co., Ltd.",
-        "Background｜Spatial decision systems, smart cities and GreenTech. Founded City Sustainability and launched the “Citizen Carbon Passbook” platform; with National Cheng Kung University and Shanghai Commercial & Savings Bank, uses blockchain ledgers to turn everyday green consumption and carbon-reduction behaviour into data assets."
+        "Experience｜A background in IT and cloud services; began a blockchain venture in 2018 to support resource sharing and sustainability",
+        "Practice｜Develops the personal carbon passbook initiative, exploring how everyday sustainable actions can become usable carbon data assets",
+        "Focus｜Blockchain, sustainable consumption, carbon data and financial services"
       ],
-      "abstract": "探討 FinTech 如何與 GreenTech 深度結合，藉由物聯網與區塊鏈透明可驗證的特性，將一般民眾與中小企業的永續減碳行為轉化為具備金融價值的信用資產，落實雙軸（數位＋綠色）轉型與普惠金融願景。",
-      "abstractEn": "How FinTech and GreenTech combine: using the transparency and verifiability of IoT and blockchain, the carbon-reduction behaviour of ordinary people and small businesses becomes a credit asset with financial value — delivering the twin (digital + green) transition and inclusive finance."
+      "abstract": "課程導讀（依講題規劃）｜從日常消費與減碳行為出發，探索 ESG（環境、社會與治理）資料如何連結金融服務。預計涵蓋永續資料的蒐集與可信度、數位與綠色雙軸轉型，以及讓更多個人與中小企業參與金融服務的可能性；實際內容以講者當日分享為準。",
+      "abstractEn": "Session preview based on the announced title｜Explore how data from everyday consumption and carbon-reduction actions can connect with financial services. Planned themes include ESG data collection and credibility, digital and green transformation, and broader participation by individuals and small businesses. The speaker’s presentation will determine the final scope."
     },
     {
       "week": 10,
@@ -368,10 +374,18 @@
       "roleEn": "Head of Business Development, Taiwan",
       "org": "Zodia Custody",
       "orgEn": "Zodia Custody",
-      "bio": [],
-      "bioEn": [],
-      "abstract": "講座詳細內容待公告。",
-      "abstractEn": "Further session details will be announced."
+      "bio": [
+        "背景｜由電信科技與網路服務跨入金融科技，具行動支付、電子支付與跨境支付實務經驗",
+        "經歷｜曾任職台新銀行、CYBAVO 與 Circle，參與數位金融及虛擬資產應用",
+        "實務｜涵蓋數位資產託管、穩定幣與真實世界資產（RWA）代幣化，並協助金融機構規劃產品、技術整合與合規流程"
+      ],
+      "bioEn": [
+        "Background｜Moved from telecommunications and internet services into FinTech, with experience in mobile, electronic and cross-border payments",
+        "Experience｜Previously worked at Taishin Bank, CYBAVO and Circle on digital finance and virtual asset applications",
+        "Practice｜Digital asset custody, stablecoins and real-world asset tokenization; supports financial institutions in product planning, technology integration and compliance workflows"
+      ],
+      "abstract": "課程導讀（依講題規劃）｜從機構使用數位資產的需求出發，梳理穩定幣與真實世界資產（RWA）代幣化的市場角色。預計涵蓋發行、託管與交易結算之間的關係，以及機構導入時的法遵、風險管理與實務案例觀察；實際內容以講者當日分享為準。",
+      "abstractEn": "Session preview based on the announced title｜Examine stablecoins and real-world asset tokenization from an institutional perspective. Planned themes include the relationships between issuance, custody and settlement, alongside compliance, risk management and practical use cases. The speaker’s presentation will determine the final scope."
     },
     {
       "week": 12,
@@ -410,10 +424,18 @@
       "roleEn": "Senior Consulting Associate Director",
       "org": "前台灣 IBM 全球企業諮詢服務事業群",
       "orgEn": "Formerly IBM Taiwan Global Business Services",
-      "bio": [],
-      "bioEn": [],
-      "abstract": "講座詳細內容待公告。",
-      "abstractEn": "Further session details will be announced."
+      "bio": [
+        "經歷｜曾任 IBM 全球企業諮詢服務事業部門協理，以及 IBM Consulting 台灣金融事業部副合夥人",
+        "公開分享｜曾於 IBM 研討會分享數據中台與智慧化流程，並於金融雲論壇討論金融業上雲與數據應用案例",
+        "關注領域｜金融業數位轉型、資料與業務流程整合、雲端服務及企業 AI 應用"
+      ],
+      "bioEn": [
+        "Experience｜Former Associate Director in IBM Global Business Services and Associate Partner in IBM Consulting’s Taiwan financial services practice",
+        "Public speaking｜Presented on enterprise data platforms and intelligent workflows at an IBM seminar, and discussed cloud and data use cases at a financial cloud forum",
+        "Focus｜Digital transformation in financial services, data and workflow integration, cloud services and enterprise AI applications"
+      ],
+      "abstract": "課程導讀（依講題規劃）｜把企業導入 AI 視為持續改善的過程，從業務問題、資料準備到流程整合，理解試驗如何走向日常營運。預計結合金融業情境，討論跨部門協作、成效衡量與持續調整，思考數位轉型所需的組織能力；實際內容以講者當日分享為準。",
+      "abstractEn": "Session preview based on the announced title｜Treat enterprise AI adoption as ongoing improvement, from identifying business needs and preparing data to integrating workflows. Using financial services as the context, planned themes include cross-team collaboration, measuring outcomes and building capabilities for continuous change. The speaker’s presentation will determine the final scope."
     }
   ],
   "workshops": [

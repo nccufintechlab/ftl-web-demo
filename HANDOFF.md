@@ -1,3 +1,13 @@
+# 本輪狀態 — 2026-10-08 其他講者公開資料補齊
+
+- 使用者要求查公開資料補其餘講者介紹，並依標題填課程內容；範圍W3陳顯立、W6林庠序、W10郭茂仁、W13陳昌裕，中英文bio／abstract。職稱、日期、講題、獎勵、Jade Ho與其他活動不變。
+- 來源與採用界線：docs/content/2026-10-08-speaker-sources.md。W3依政大同場活動報導寫已發生的分享；其餘標「課程導讀（依講題規劃）」及當日分享為準。經歷來源TeSA、經濟部新創圓夢網、高雄金融科技創新園區、TABEI、IBM活動頁及微軟論壇報導。不猜學歷／英文姓名／未確認現職，不把碳數據等同認證碳權，不新增投資成效。
+- 使用course-schedule乾淨工作區，分支codex/speaker-public-profiles，來源7c1edc7；site原未提交修復未動。既有Pages流程從Supabase拉內容；更新正式資料及repo快照避免下次發布覆蓋。
+- 正式資料已備份並以id＋updated_at＋完整舊data條件更新四筆，單一transaction遇差異全部中止。讀回逐欄（僅排除伺服器updated_at）全相同。證據父目錄proof/speakers-{before,after}-20261008.json、update-speakers-20261008.sql、speakers-production-readback.json。SQL編輯器舊內容被自動審核保護，已另建查詢保留；SQL警告UPDATE無WHERE為parser誤判，執行前確認四筆都有id/version/data條件。
+- 簡短QA：社員核對講題與講者、內容編輯核對來源與時點、手機讀者驗證長文及中英文。兩輪1280×800／375×812 proof/speakers-round{1,2}-{desktop,mobile}.png。層次標題清楚；留白分隔導讀與簡介；字體沿用Huninn/Outfit；藍色系／對齊沿用GlassV6；375px scrollWidth=375；詳情開關／鍵盤／語言切換正常；英文長文scrollTop217.5且內容965高/視窗747高可到底；原有動效不改。無新視覺缺陷、console errors空。沒有新增敏感流程或正式安全攻擊測試。
+- 靜態文案依testing-policy不另寫瑣碎文字unit。全前台初跑90通過、8失敗、22略過：兩個既有測試硬編碼「生成式AI/generative AI」舊內容，各四裝置；實際詳情與翻譯已是本轮核對的內容，更新預期且保留流程檢查。兩個過時預期各獨立修正、各四裝置重測4/4通過；最終npm test通過（35 unit、型別、lint、連結，6既有warnings）、2項匯出檢查通過、全前台98 passed／22 skipped。紀錄/tmp/speakers-final-{test,visual}.log、/tmp/speakers-export.log；測試後未改產品內容。
+- build初次沙箱禁止通訊埠失敗，保留.next到/tmp/ftl-speakers-next-sandbox-failed後於允許環境重建通過。沿用已核可課表發布對暫停後台測試專案的例外，未變更權杖/權限，不能宣稱後台發布按鈕403已修。
+
 # 本輪狀態 — 2026-10-08 Jade Ho 簡介與分享預覽
 
 - 使用者提供 Jade Ho 個人檔案，要求更新講者介紹，並問 Discord 網址預覽為何缺圖。以專業資料整理中英文摘要及現任／學歷／經歷／專長；未刊登宗教與婚禮連結，未將學校名稱擅自綁定到特定學位。講題、日期、獎勵資格不變。
