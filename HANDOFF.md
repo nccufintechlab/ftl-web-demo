@@ -13,7 +13,7 @@
 - 教學已交付：英文名與新聞的使用者結果、靜態資料隨既有Pages發布、來源與個資風險、沿用既有卡片無新增費用；備援為日後新聞常更新再擴充後台。實際套用product-owner-teaching、impeccable、emil-design-eng、systematic-debugging、verification-before-completion、computer-use、built-in-browser。
 - 上線檢查：正式/about/#members已核對13位英文名、Ricky統計碩二；正式/#news在週報之前，兩張圖片naturalWidth400、來源連結正確、console errors空。首次驗收發現既有/assets/v6.css瀏覽器快取仍為舊版（figure margin 17px 40px），補查詢版本?v=20261008-news強制取得新版，未改視覺設計。main重新npm test/build/2export/98前台測試通過（22條件skip）；log /tmp/officers-cache-{test,build,export,visual}.log。
 - main初次匯出測試因遠端新合作對象圖片本機缺少而失敗，從已上線公開網址同步至生成目錄後重建通過；正常CI由Supabase取圖。
-- 下一步：追蹤此次樣式快取修正部署並確認正式computed style與截圖；未變動後台測試限制或權杖。
+- 最終上線：4f4f3ef樣式修正／Pages run37742873940成功。既有瀏覽器重新整理後CSS網址含版本、figure margin由17px 40px變0px、兩張圖complete且naturalWidth400、console errors空。正式截圖父目錄proof/news-live.png；原網址/#news及/about/#members已驗收。沒有改後台權限／權杖或把測試缺口當通過。
 
 # 本輪狀態 — 2026-10-08 其他講者公開資料補齊
 
