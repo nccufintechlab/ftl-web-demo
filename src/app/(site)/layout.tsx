@@ -36,7 +36,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Huninn&family=IBM+Plex+Mono:wght@400;500&display=swap" />
-        <link rel="stylesheet" href={`${basePath}/assets/v6.css`} />
+        <link rel="stylesheet" href={`${basePath}/assets/v6.css?v=20261008-news`} />
       </head>
       <body>
         {children}
