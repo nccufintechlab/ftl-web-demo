@@ -1,3 +1,16 @@
+# 本輪狀態 — 2026-10-17 新增三則社團新聞（已授權發布）
+
+- 目標：使用者提供三篇政大文章，新增至首頁社團新聞、FinTech週報上方；保留原兩則。分支codex/campus-news-oct17，來源fb9e6496985a3422e968c67b2bc40a7e07677f71，遠端main已fetch確認相同。尚未commit、merge、push或部署。
+- 修改：CampusNews.tsx新增永續金融、AI工作坊、Canton活動預告及中英文摘要、日期、精確來源URL、照片署名；三張assets/news圖片。來源與時點詳docs/content/2026-10-17-campus-news.md。Canton海報contain完整顯示，未變更社課表、Supabase或權限。
+- 原site工作區及既有四個「 2」副本均保留不提交。本機Git有非法重複ref refs/heads/main 2導致fetch失敗，已僅移該副本至父目錄proof/git-ref-backups-20261017/main 2保留可還原，真實main不動；fetch重試成功。
+- 舊本機檔案讀取阻塞，改以同一base SHA官方codeload原始碼+本輪檔案建立/tmp/ftl-news17-verify，npm ci沿用鎖檔；四個產品檔案SHA256與工作區一致。僅驗證副本使用3017測試埠，沒有改repo測試設定。既有FTRC合作對象生成圖片從正式站補到副本public/media後建置成功，未加入產品變更。
+- 通過：npm test（35 unit、型別、lint、內部連結；6既有lint warnings）、build、2項export測試；全前台98 passed/22 skipped（Playwright最終log）。紀錄/tmp/news17-{test-clean,build-clean,export-clean,visual-final}.log。首輪前台與後台測試同時共用test-results造成trace ENOENT，改循序且獨立output後完整前台重跑通過，未放寬斷言。
+- 未通過：npm run test:admin為13 failed/5 skipped，缺測試設定時cleanup hook仍createClient而報supabaseUrl is required；contract8 skipped。原工作區同樣無.env.local/.env.test，非驗證副本漏檔。證據/tmp/news17-admin.log、/tmp/news17-contract.log。不能宣稱後台已通過；依本輪AGENTS全測失敗不得部署，使用者已明確回覆「允許本次三則新聞發布」，授權僅本次內容例外；後台限制保留。
+- 簡短QA從社員閱讀、編輯正確性、手機訪客三角度核對：五則日期新到舊、原文精確路徑、中英文切換、圖片complete/naturalWidth400、Canton預告語氣、手機scrollWidth375，console errors空。沒有新增敏感流程，未作正式攻擊測試。
+- 兩輪桌機1280x800及手機375x812，證據父目錄proof/news17-round{1,2}-{desktop,mobile}.png。八項自檢：標題圖片摘要層次清楚；既有留白；既有字體；藍白配色；卡片對齊；手機單欄無溢出；語言/來源連結與鍵盤操作正常；沒有新增動效。impeccable detector []，無忽略規則。
+- 教學：靜態新聞卡片隨既有Pages流程發布，如更新布告欄；保留後台與課表，無新增費用；備援為日後新聞頻繁更新再擴後台。技能product-owner-teaching、impeccable、emil-design-eng、systematic-debugging、verification-before-completion、built-in-browser、computer-use、playwright-cli。
+- 下一步：取得本次內容發布測試例外後，只提交本輪六個檔案，合併main並驗證；push追蹤既有Pages workflow，再正式站驗收五則新聞圖片/中英文/外連與console。不得混入四個副本或其他工作區差異。
+
 # 本輪狀態 — 2026-10-08 英文幹部姓名與首頁社團新聞
 
 - 目標：依115-1 CSV改幹部英文名，兩則政大新聞含照片放在首頁FinTech週報之前。使用者明確確認統計碩二既有幹部就是Ricky。
