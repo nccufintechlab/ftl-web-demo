@@ -1,6 +1,6 @@
-# 本輪狀態 — 2026-10-17 新增三則社團新聞（已授權發布）
+# 本輪狀態 — 2026-10-17 新增三則社團新聞（已上線）
 
-- 目標：使用者提供三篇政大文章，新增至首頁社團新聞、FinTech週報上方；保留原兩則。分支codex/campus-news-oct17，來源fb9e6496985a3422e968c67b2bc40a7e07677f71，遠端main已fetch確認相同。尚未commit、merge、push或部署。
+- 目標：使用者提供三篇政大文章，新增至首頁社團新聞、FinTech週報上方；保留原兩則。分支codex/campus-news-oct17，來源fb9e6496985a3422e968c67b2bc40a7e07677f71，遠端main已fetch確認相同。內容提交0fb3923已合併main、推送並完成Pages發布。
 - 修改：CampusNews.tsx新增永續金融、AI工作坊、Canton活動預告及中英文摘要、日期、精確來源URL、照片署名；三張assets/news圖片。來源與時點詳docs/content/2026-10-17-campus-news.md。Canton海報contain完整顯示，未變更社課表、Supabase或權限。
 - 原site工作區及既有四個「 2」副本均保留不提交。本機Git有非法重複ref refs/heads/main 2導致fetch失敗，已僅移該副本至父目錄proof/git-ref-backups-20261017/main 2保留可還原，真實main不動；fetch重試成功。
 - 舊本機檔案讀取阻塞，改以同一base SHA官方codeload原始碼+本輪檔案建立/tmp/ftl-news17-verify，npm ci沿用鎖檔；四個產品檔案SHA256與工作區一致。僅驗證副本使用3017測試埠，沒有改repo測試設定。既有FTRC合作對象生成圖片從正式站補到副本public/media後建置成功，未加入產品變更。
@@ -9,7 +9,8 @@
 - 簡短QA從社員閱讀、編輯正確性、手機訪客三角度核對：五則日期新到舊、原文精確路徑、中英文切換、圖片complete/naturalWidth400、Canton預告語氣、手機scrollWidth375，console errors空。沒有新增敏感流程，未作正式攻擊測試。
 - 兩輪桌機1280x800及手機375x812，證據父目錄proof/news17-round{1,2}-{desktop,mobile}.png。八項自檢：標題圖片摘要層次清楚；既有留白；既有字體；藍白配色；卡片對齊；手機單欄無溢出；語言/來源連結與鍵盤操作正常；沒有新增動效。impeccable detector []，無忽略規則。
 - 教學：靜態新聞卡片隨既有Pages流程發布，如更新布告欄；保留後台與課表，無新增費用；備援為日後新聞頻繁更新再擴後台。技能product-owner-teaching、impeccable、emil-design-eng、systematic-debugging、verification-before-completion、built-in-browser、computer-use、playwright-cli。
-- 下一步：取得本次內容發布測試例外後，只提交本輪六個檔案，合併main並驗證；push追蹤既有Pages workflow，再正式站驗收五則新聞圖片/中英文/外連與console。不得混入四個副本或其他工作區差異。
+- 上線結果：Pages run39013859487成功，對應0fb3923159d1bcc0a992f8c05a11282291a847cc。main合併後同源驗證副本重跑npm test/build/2 export/98前台通過（22條件skip），log /tmp/news17-main-{test,build,export,visual}.log。既有後台失敗依使用者本次明確例外保留。
+- 正式 https://nccufintechlab.tw/#news 已重新載入驗收：三新兩舊、五張圖complete且naturalWidth400、五個來源精確URL、中英文切換正常、console errors空。正式截圖父目錄proof/news17-live.png。部署快照56b5100僅generatedAt更新，已同步本機。四個重複副本仍未提交；後台測試設定仍為獨立待處理事項。
 
 # 本輪狀態 — 2026-10-08 英文幹部姓名與首頁社團新聞
 
