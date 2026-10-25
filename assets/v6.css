@@ -478,7 +478,7 @@ a{ color:inherit }
   .issue__sources summary,.issue__sources li a{ display:inline-flex; align-items:center; min-height:40px }
   .info{ flex-direction:column; align-items:stretch; gap:6px }
   .info dt{ width:auto }
-  #event-list .row{ grid-template-columns:1fr auto; row-gap:var(--s1); padding:var(--s3) var(--s4) }
+  #event-list .row{ grid-template-columns:1fr auto; row-gap:var(--s1); padding:calc(var(--s3) - 2px) var(--s4) }
   #event-list .row__date{ grid-column:1; grid-row:1; flex-direction:row; align-items:baseline; gap:10px; min-width:0 }
   #event-list .row__side{ grid-column:2; grid-row:1 }
   #event-list .row__main{ grid-column:1 / -1; grid-row:2 }

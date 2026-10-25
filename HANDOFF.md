@@ -6,7 +6,10 @@
 - TDD：既有 GitHub 匯出測試 run 40177129059 明確紅燈；新增 HTTP 本機伺服器邊界測試先因缺模組紅，實作後綠。新測試也驗證拒絕越界路徑。測試原始檔 `tests/unit/sync-public-media.test.ts`。
 - 本機原工作區有讀取阻塞（舊檔報 Unknown system error -70），改以官方 codeload 同 SHA 乾淨副本 `/tmp/ci-media-verify` 與相同 package-lock `npm ci` 驗證；本輪檔案已複製到副本。`node scripts/sync-public-media.ts` 初跑補齊 7 張圖片、重跑 0 張；`npm test` 型別、lint、連結、37 unit 全通過；`npm run build` 通過；2 項 export 通過；前台 Playwright 98 passed/22 skipped。紀錄 `/tmp/ci-media-{restore,test-final2,build-final,export-final,visual-final}.log`。本機 sandbox 不允許測試監聽 127.0.0.1，已在核准環境跑完整 `npm test` 通過。
 - 使用者與維護者 QA：正式圖片 HTTP 200，既有站未改；CI 取已公開圖片後靜態匯出能包含它，外連線或圖片型態不符時會失敗。安全範圍檢查：下載來源固定、路徑越界測試通過、不新增密鑰／權限；未做正式站攻擊測試。備援方案是提交圖片副本到 repo，但會讓動態內容與版本庫重複且日後持續膨脹。此方案依賴正式網站公開圖片可取用；網站不可用時 CI 會明確失敗。
-- 待辦：在有測試專案金鑰的 GitHub 分支 CI 驗證完整流程，若全綠再合併 main 並驗證正式站；若後台測試仍有既存失敗，記錄證據並依全測門檻處理，不硬推正式站。
+- GitHub PR #1 首輪 run 40178663918：原本失敗的圖片匯出檢查通過，但完整視覺測試在390px活動頁高度8132px、既有門檻8120px失敗（149 pass／30 skip／1 fail），後台測試因 `&&` 尚未執行。此缺陷先前被匯出檢查擋住。沒有放寬高度斷言。
+- 局部前端修正：`assets/v6.css` 將手機活動列上下 padding 各縮2px，不動字級、內容、展開互動或桌機排版。375×812實測scrollHeight 8103、scrollWidth 375；390px原失敗測試在本機通過。最終兩輪桌機1280×800與手機375×812截圖位於父目錄`proof/ci-media-round{3,4}-{desktop,mobile}.png`；八項自檢：標題與內容層次清楚、列表留白有節奏、原有字體與藍白配色、行距與對齊正常、375px無橫向溢出、篩選／展開／焦點狀態正常、原有微動效不變。早期round1/2發現375px仍超上限，已修正並重拍。
+- CSS修改後同源乾淨副本的`npm test`（37 unit、型別、lint、連結）、`npm run build`、2項匯出檢查、完整前台98 passed／22條件skipped全部通過；證據`/tmp/ci-media-final-{test,build,export,visual}.log`。第一次重跑視覺時因本輪預覽服務佔用Next dev lock未啟動測試，停止自有服務後完整重跑通過，與程式斷言無關。之後只修改本HANDOFF紀錄，未動程式或測試。
+- 待辦：更新PR讓有測試專案金鑰的GitHub執行完整CI；全綠才合併main並驗證正式站。若後台測試仍有既存失敗，記錄證據並依全測門檻處理，不硬推正式站。
 
 # 本輪狀態 — 2026-10-17 新增三則社團新聞（已上線）
 
