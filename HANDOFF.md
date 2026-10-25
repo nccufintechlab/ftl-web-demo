@@ -9,6 +9,10 @@
 - GitHub PR #1 首輪 run 40178663918：原本失敗的圖片匯出檢查通過，但完整視覺測試在390px活動頁高度8132px、既有門檻8120px失敗（149 pass／30 skip／1 fail），後台測試因 `&&` 尚未執行。此缺陷先前被匯出檢查擋住。沒有放寬高度斷言。
 - 局部前端修正：`assets/v6.css` 將手機活動列上下 padding 各縮2px，不動字級、內容、展開互動或桌機排版。375×812實測scrollHeight 8103、scrollWidth 375；390px原失敗測試在本機通過。最終兩輪桌機1280×800與手機375×812截圖位於父目錄`proof/ci-media-round{3,4}-{desktop,mobile}.png`；八項自檢：標題與內容層次清楚、列表留白有節奏、原有字體與藍白配色、行距與對齊正常、375px無橫向溢出、篩選／展開／焦點狀態正常、原有微動效不變。早期round1/2發現375px仍超上限，已修正並重拍。
 - CSS修改後同源乾淨副本的`npm test`（37 unit、型別、lint、連結）、`npm run build`、2項匯出檢查、完整前台98 passed／22條件skipped全部通過；證據`/tmp/ci-media-final-{test,build,export,visual}.log`。第一次重跑視覺時因本輪預覽服務佔用Next dev lock未啟動測試，停止自有服務後完整重跑通過，與程式斷言無關。之後只修改本HANDOFF紀錄，未動程式或測試。
+- 第二輪 CI run 40179443748：圖片匯出與手機活動高度均通過，149 passed／30 skipped／1 failed；WebKit-mobile 週曆三次上一週後仍停 9/07。下載 trace `/tmp/ci-media-artifact/glass-v6-glass-v6-homepage-e3ec5-nday-week-with-today-marked-webkit-mobile/trace.zip`：call@90/92 的 after snapshot 分別為 9/14、9/07；call@94 action snapshot 的 scrollTop=1841，after=1811 且日期未變。這證實點擊前後仍有30px捲動（量測為 trace snapshot 的 `__playwright_scroll_top_` 差值；前兩次日期變更作正對照），推論為平滑捲動造成指標操作競速，而非 React 更新覆蓋（原碼已用 functional setter）。
+- Astra 接手僅修 `tests/visual/glass-v6.spec.ts`：該日期功能測試啟用既有 reduced-motion（CSS 會令 scroll-behavior:auto），每次翻週即斷言手算日期，保留 11/02、8/31 與邊界按鈕 disabled 原斷言。不加重試／固定延遲、不改產品。RED 為上述 CI trace；本機 focused 四視口已綠，Safari/WebKit 仍須 GitHub 驗證。使用者 QA 角度為社員逐週查時程；可靠性角度為每次點擊都須換到正確日期。沒有新增敏感入口／權限，未觸發新的資安模擬；既有前端兩輪截圖仍適用，這次沒有 UI 原始碼修改。
+- 本輪測試修改後本機全套：`npm test`（型別、lint、內連、37 unit）、`npm run build`、2 export、前台 98 passed／22 skipped 均 exit 0；原始紀錄 `/tmp/astra-full-{test,build,export,visual}.log`，局部 `/tmp/astra-calendar-local.log`（4 passed）。同源驗證副本 `/tmp/ci-media-verify`，原有鎖檔／安裝未變。最後僅補交接紀錄；未改產品或斷言。後台與 WebKit 要等 GitHub，不宣稱已全綠。
+- 教學檢查點：週曆查時程能力與使用體驗不變；測試透過真實按鈕→React offset→日期畫面驗證，減少動態效果讓功能測試不與捲動競速。推薦條件化模式而非固定 sleep（備援但易受機器速度影響）。無新費用／資料／權限，限制是本機 macOS 無法執行目前 WebKit，必須等 GitHub 全套含後台綠燈才合併。已套用 product-owner-teaching、systematic-debugging、test-driven-development、playwright-cli、verification-before-completion。
 - 待辦：更新PR讓有測試專案金鑰的GitHub執行完整CI；全綠才合併main並驗證正式站。若後台測試仍有既存失敗，記錄證據並依全測門檻處理，不硬推正式站。
 
 # 本輪狀態 — 2026-10-17 新增三則社團新聞（已上線）
