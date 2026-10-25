@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-17T07:30:25.997Z",
+  "generatedAt": "2026-10-25T05:57:00.919Z",
   "semester": {
     "code": "115-1",
     "range": "2026.09 – 2026.12",
@@ -653,6 +653,12 @@
       "en": "FinTech Research Center, FTRC",
       "href": "https://www.ftrc.nccu.edu.tw",
       "logo": "/media/partners/news-1687578008-6467ea10691d42c3d0ace7a69689893e-1791441420459.jpg"
+    },
+    {
+      "zh": " ",
+      "en": "Canton Network",
+      "href": "https://www.canton.network/",
+      "logo": "/media/partners/canton-logo-black-1792907774000.svg"
     }
   ],
   "weekly": [
