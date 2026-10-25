@@ -13,7 +13,11 @@
 - Astra 接手僅修 `tests/visual/glass-v6.spec.ts`：該日期功能測試啟用既有 reduced-motion（CSS 會令 scroll-behavior:auto），每次翻週即斷言手算日期，保留 11/02、8/31 與邊界按鈕 disabled 原斷言。不加重試／固定延遲、不改產品。RED 為上述 CI trace；本機 focused 四視口已綠，Safari/WebKit 仍須 GitHub 驗證。使用者 QA 角度為社員逐週查時程；可靠性角度為每次點擊都須換到正確日期。沒有新增敏感入口／權限，未觸發新的資安模擬；既有前端兩輪截圖仍適用，這次沒有 UI 原始碼修改。
 - 本輪測試修改後本機全套：`npm test`（型別、lint、內連、37 unit）、`npm run build`、2 export、前台 98 passed／22 skipped 均 exit 0；原始紀錄 `/tmp/astra-full-{test,build,export,visual}.log`，局部 `/tmp/astra-calendar-local.log`（4 passed）。同源驗證副本 `/tmp/ci-media-verify`，原有鎖檔／安裝未變。最後僅補交接紀錄；未改產品或斷言。後台與 WebKit 要等 GitHub，不宣稱已全綠。
 - 教學檢查點：週曆查時程能力與使用體驗不變；測試透過真實按鈕→React offset→日期畫面驗證，減少動態效果讓功能測試不與捲動競速。推薦條件化模式而非固定 sleep（備援但易受機器速度影響）。無新費用／資料／權限，限制是本機 macOS 無法執行目前 WebKit，必須等 GitHub 全套含後台綠燈才合併。已套用 product-owner-teaching、systematic-debugging、test-driven-development、playwright-cli、verification-before-completion。
-- 待辦：更新PR讓有測試專案金鑰的GitHub執行完整CI；全綠才合併main並驗證正式站。若後台測試仍有既存失敗，記錄證據並依全測門檻處理，不硬推正式站。
+- 第三輪完整 CI run [40180203257](https://github.com/nccufintechlab/ftl-web-demo/actions/runs/40180203257)，head `b784ec7`：型別／lint／unit、build、export 成功；前台（含 WebKit）150 passed／30 skipped，原週曆失敗已通過。後台 16 failed／1 passed／1 skipped，均在登入前置流程報 `login failed: Failed to fetch`；另有登入失敗後 cleanup 的 `Cannot read properties of null (reading data)`。不能宣稱完整 CI 綠燈。
+- 後台阻塞證據：CI artifact `/tmp/astra-admin-artifact` 的 partners/mobile/events trace 網路請求指向 `bpadohdiuvbimvkwpecv.supabase.co/auth/v1/token`，status=-1；partners trace console 明確 `net::ERR_NAME_NOT_RESOLVED`。只擷取 hostname/path/status/error，沒有輸出 token、密碼或 request headers。完整失敗紀錄 `/tmp/astra-admin-ci-failed.log`。2026-10-25 公開 `dig @1.1.1.1 <host> A`：先校準 `supabase.com` 與正式 `xesxfcqtbzmlanyvdeys.supabase.co` 均 NOERROR／有A，再查測試 hostname 為 NXDOMAIN；無憑證 `curl /auth/v1/health` 正式回401（可達但要求憑證），測試 exit6／HTTP000（主機無法解析）。因此已證實直接失敗原因是測試環境 DNS 不可達，不是本次產品改動或密碼錯誤。
+- 根因界線：本檔既有紀錄明確載明使用者授權暫停 `ftl-web-test` 且確認 PAUSED，為正式專案恢復釋出免費啟用名額；目前 DNS 證據與此一致。本輪未重新登入 Dashboard 讀取目前專案狀態，因此不能僅憑 NXDOMAIN 排除刪除／改網址等可能。沒有變更 Supabase 專案、secrets、測試門檻或正式站。
+- 待決／推薦：恢復獨立測試專案後重跑完整 CI（推薦，保留真實登入與權限驗證）；依既有兩個免費 active 名額紀錄，需使用者決定可否暫停不用的另一專案以釋出名額，或選擇付費容量（價格／目前方案須決策時再確認）。備援是規劃本機隔離 Supabase 測試環境，但需另行核可環境建置與等價驗證，不能當即跳過現有後台測試。不得改用正式資料庫跑寫入測試。恢復方案需要使用者決策；停在 PR，不合併／不部署。
+
 
 # 本輪狀態 — 2026-10-17 新增三則社團新聞（已上線）
 
