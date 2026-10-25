@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25T05:57:00.919Z",
+  "generatedAt": "2026-10-25T05:57:51.388Z",
   "semester": {
     "code": "115-1",
     "range": "2026.09 – 2026.12",
@@ -640,7 +640,8 @@
     {
       "zh": "市民永續",
       "en": "City Sustainability",
-      "href": "https://www.greenhope.com.tw/"
+      "href": "https://www.greenhope.com.tw/",
+      "logo": "/media/partners/29-greenhope-1792907861092.png"
     },
     {
       "zh": "台灣金融研訓院",
