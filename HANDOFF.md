@@ -1,3 +1,24 @@
+# 本輪狀態 — 2026-10-25 修復圖片匯出 CI（分支驗證中）
+
+- 目標：使用者指出 GitHub `robots.txt` 提交紅色叉號。查 run 40177129059 為 `Next architecture CI` 的匯出檢查失敗：首頁引用 `/media/partners/29-greenhope-1792907861092.png`，但該工作流程未像 Pages 部署 run 40177129048 一樣準備圖片。Pages 部署成功、正式圖片 HTTP 200。不得把 Pages 成功誤稱全部檢查成功。
+- 工作區 `course-schedule`、分支 `codex/align-ci-media-pull`，從 origin/main `d43e8e44d43b4412505a9eb652f241b937ee30ef` 開始。`site` 工作區與四個既有「 2」未追蹤副本未動。
+- 修改：`next-ci.yml` 在建置前執行 `scripts/sync-public-media.ts`，依已提交快照只下載缺少的 `/media/` 圖片，來源固定為公開正式網站；不把正式 Supabase 高權限金鑰提供給 PR 工作流程。原匯出斷言保持不變。腳本限制路徑必須在 public 內，回應必須成功且為非空圖片；現有圖片不覆寫。
+- TDD：既有 GitHub 匯出測試 run 40177129059 明確紅燈；新增 HTTP 本機伺服器邊界測試先因缺模組紅，實作後綠。新測試也驗證拒絕越界路徑。測試原始檔 `tests/unit/sync-public-media.test.ts`。
+- 本機原工作區有讀取阻塞（舊檔報 Unknown system error -70），改以官方 codeload 同 SHA 乾淨副本 `/tmp/ci-media-verify` 與相同 package-lock `npm ci` 驗證；本輪檔案已複製到副本。`node scripts/sync-public-media.ts` 初跑補齊 7 張圖片、重跑 0 張；`npm test` 型別、lint、連結、37 unit 全通過；`npm run build` 通過；2 項 export 通過；前台 Playwright 98 passed/22 skipped。紀錄 `/tmp/ci-media-{restore,test-final2,build-final,export-final,visual-final}.log`。本機 sandbox 不允許測試監聽 127.0.0.1，已在核准環境跑完整 `npm test` 通過。
+- 使用者與維護者 QA：正式圖片 HTTP 200，既有站未改；CI 取已公開圖片後靜態匯出能包含它，外連線或圖片型態不符時會失敗。安全範圍檢查：下載來源固定、路徑越界測試通過、不新增密鑰／權限；未做正式站攻擊測試。備援方案是提交圖片副本到 repo，但會讓動態內容與版本庫重複且日後持續膨脹。此方案依賴正式網站公開圖片可取用；網站不可用時 CI 會明確失敗。
+- GitHub PR #1 首輪 run 40178663918：原本失敗的圖片匯出檢查通過，但完整視覺測試在390px活動頁高度8132px、既有門檻8120px失敗（149 pass／30 skip／1 fail），後台測試因 `&&` 尚未執行。此缺陷先前被匯出檢查擋住。沒有放寬高度斷言。
+- 局部前端修正：`assets/v6.css` 將手機活動列上下 padding 各縮2px，不動字級、內容、展開互動或桌機排版。375×812實測scrollHeight 8103、scrollWidth 375；390px原失敗測試在本機通過。最終兩輪桌機1280×800與手機375×812截圖位於父目錄`proof/ci-media-round{3,4}-{desktop,mobile}.png`；八項自檢：標題與內容層次清楚、列表留白有節奏、原有字體與藍白配色、行距與對齊正常、375px無橫向溢出、篩選／展開／焦點狀態正常、原有微動效不變。早期round1/2發現375px仍超上限，已修正並重拍。
+- CSS修改後同源乾淨副本的`npm test`（37 unit、型別、lint、連結）、`npm run build`、2項匯出檢查、完整前台98 passed／22條件skipped全部通過；證據`/tmp/ci-media-final-{test,build,export,visual}.log`。第一次重跑視覺時因本輪預覽服務佔用Next dev lock未啟動測試，停止自有服務後完整重跑通過，與程式斷言無關。之後只修改本HANDOFF紀錄，未動程式或測試。
+- 第二輪 CI run 40179443748：圖片匯出與手機活動高度均通過，149 passed／30 skipped／1 failed；WebKit-mobile 週曆三次上一週後仍停 9/07。下載 trace `/tmp/ci-media-artifact/glass-v6-glass-v6-homepage-e3ec5-nday-week-with-today-marked-webkit-mobile/trace.zip`：call@90/92 的 after snapshot 分別為 9/14、9/07；call@94 action snapshot 的 scrollTop=1841，after=1811 且日期未變。這證實點擊前後仍有30px捲動（量測為 trace snapshot 的 `__playwright_scroll_top_` 差值；前兩次日期變更作正對照），推論為平滑捲動造成指標操作競速，而非 React 更新覆蓋（原碼已用 functional setter）。
+- Astra 接手僅修 `tests/visual/glass-v6.spec.ts`：該日期功能測試啟用既有 reduced-motion（CSS 會令 scroll-behavior:auto），每次翻週即斷言手算日期，保留 11/02、8/31 與邊界按鈕 disabled 原斷言。不加重試／固定延遲、不改產品。RED 為上述 CI trace；本機 focused 四視口已綠，Safari/WebKit 仍須 GitHub 驗證。使用者 QA 角度為社員逐週查時程；可靠性角度為每次點擊都須換到正確日期。沒有新增敏感入口／權限，未觸發新的資安模擬；既有前端兩輪截圖仍適用，這次沒有 UI 原始碼修改。
+- 本輪測試修改後本機全套：`npm test`（型別、lint、內連、37 unit）、`npm run build`、2 export、前台 98 passed／22 skipped 均 exit 0；原始紀錄 `/tmp/astra-full-{test,build,export,visual}.log`，局部 `/tmp/astra-calendar-local.log`（4 passed）。同源驗證副本 `/tmp/ci-media-verify`，原有鎖檔／安裝未變。最後僅補交接紀錄；未改產品或斷言。後台與 WebKit 要等 GitHub，不宣稱已全綠。
+- 教學檢查點：週曆查時程能力與使用體驗不變；測試透過真實按鈕→React offset→日期畫面驗證，減少動態效果讓功能測試不與捲動競速。推薦條件化模式而非固定 sleep（備援但易受機器速度影響）。無新費用／資料／權限，限制是本機 macOS 無法執行目前 WebKit，必須等 GitHub 全套含後台綠燈才合併。已套用 product-owner-teaching、systematic-debugging、test-driven-development、playwright-cli、verification-before-completion。
+- 第三輪完整 CI run [40180203257](https://github.com/nccufintechlab/ftl-web-demo/actions/runs/40180203257)，head `b784ec7`：型別／lint／unit、build、export 成功；前台（含 WebKit）150 passed／30 skipped，原週曆失敗已通過。後台 16 failed／1 passed／1 skipped，均在登入前置流程報 `login failed: Failed to fetch`；另有登入失敗後 cleanup 的 `Cannot read properties of null (reading data)`。不能宣稱完整 CI 綠燈。
+- 後台阻塞證據：CI artifact `/tmp/astra-admin-artifact` 的 partners/mobile/events trace 網路請求指向 `bpadohdiuvbimvkwpecv.supabase.co/auth/v1/token`，status=-1；partners trace console 明確 `net::ERR_NAME_NOT_RESOLVED`。只擷取 hostname/path/status/error，沒有輸出 token、密碼或 request headers。完整失敗紀錄 `/tmp/astra-admin-ci-failed.log`。2026-10-25 公開 `dig @1.1.1.1 <host> A`：先校準 `supabase.com` 與正式 `xesxfcqtbzmlanyvdeys.supabase.co` 均 NOERROR／有A，再查測試 hostname 為 NXDOMAIN；無憑證 `curl /auth/v1/health` 正式回401（可達但要求憑證），測試 exit6／HTTP000（主機無法解析）。因此已證實直接失敗原因是測試環境 DNS 不可達，不是本次產品改動或密碼錯誤。
+- 根因界線：本檔既有紀錄明確載明使用者授權暫停 `ftl-web-test` 且確認 PAUSED，為正式專案恢復釋出免費啟用名額；目前 DNS 證據與此一致。本輪未重新登入 Dashboard 讀取目前專案狀態，因此不能僅憑 NXDOMAIN 排除刪除／改網址等可能。沒有變更 Supabase 專案、secrets、測試門檻或正式站。
+- 待決／推薦：恢復獨立測試專案後重跑完整 CI（推薦，保留真實登入與權限驗證）；依既有兩個免費 active 名額紀錄，需使用者決定可否暫停不用的另一專案以釋出名額，或選擇付費容量（價格／目前方案須決策時再確認）。備援是規劃本機隔離 Supabase 測試環境，但需另行核可環境建置與等價驗證，不能當即跳過現有後台測試。不得改用正式資料庫跑寫入測試。恢復方案需要使用者決策；停在 PR，不合併／不部署。
+
+
 # 本輪狀態 — 2026-10-17 新增三則社團新聞（已上線）
 
 - 目標：使用者提供三篇政大文章，新增至首頁社團新聞、FinTech週報上方；保留原兩則。分支codex/campus-news-oct17，來源fb9e6496985a3422e968c67b2bc40a7e07677f71，遠端main已fetch確認相同。內容提交0fb3923已合併main、推送並完成Pages發布。

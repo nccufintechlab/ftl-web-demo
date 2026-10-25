@@ -15,6 +15,8 @@ jobs:
           node-version: 24
       - run: npm install --no-audit --no-fund
       - run: npm test
+      - name: Restore public images referenced by the committed snapshot
+        run: node scripts/sync-public-media.ts
       - run: npm run build
       - run: node --test tests/export/custom-domain.test.mjs
       - run: npx playwright install --with-deps chromium webkit
