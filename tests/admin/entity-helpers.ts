@@ -13,7 +13,11 @@ export async function deleteAndRestore(page: Page, navLabel: string, rowText: st
   await expect(row).toHaveCount(0);
   await page.getByRole("navigation").getByRole("link", { name: "已刪除" }).click();
   await expect(page.getByText(rowText)).toBeVisible();
-  await page.getByTestId("trash-row").filter({ hasText: rowText }).getByRole("button", { name: "還原" }).click();
+  const trashRow = page.getByTestId("trash-row").filter({ hasText: rowText });
+  await trashRow.getByRole("button", { name: "還原" }).click();
+  // Wait for the server-backed trash refresh before navigating away. A click
+  // alone does not mean the restore request has completed.
+  await expect(trashRow).toHaveCount(0);
   await page.getByRole("navigation").getByRole("link", { name: navLabel }).click();
   await expect(page.getByTestId("entity-row").filter({ hasText: rowText })).toHaveCount(1);
 }

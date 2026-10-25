@@ -38,3 +38,14 @@ test("social previews use the live domain and a bundled image", () => {
   assert.ok(urls.length > 0);
   assert.ok(urls.every((url) => url.origin === "https://nccufintechlab.tw"));
 });
+
+// Check the deployed artifact so edits to an unused root robots.txt cannot pass.
+test("published robots allows crawling and points to the exported sitemap", () => {
+  const robots = readFileSync("out/robots.txt", "utf8");
+  assert.match(robots, /^User-agent: \*$/im);
+  assert.match(robots, /^Allow: \/$/im);
+  assert.doesNotMatch(robots, /^Disallow: \/\s*$/im);
+  const sitemap = /^Sitemap: (.+)$/im.exec(robots)?.[1].trim();
+  assert.equal(sitemap, "https://nccufintechlab.tw/sitemap.xml");
+  assert.ok(existsSync(join("out", new URL(sitemap).pathname)));
+});

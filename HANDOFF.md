@@ -1,3 +1,13 @@
+# 本輪狀態 — 2026-10-26 真正發布 robots 與還原測試同步
+
+- 工作區 `/tmp/ftl-robots-fix-20261026`，分支 `codex/fix-published-robots`，來源 main `7019c86`；原 site/course-schedule 未提交紀錄及副本完全保留。
+- 查證：PR #1 已合併；main run 40218741923 圖片匯出通過、前台150 passed/30 skipped，後台16 passed/1 skipped/1 failed。Pages 40218741930 成功，但正式 robots 仍為 Disallow: /。根目錄 robots.txt 不是 Next 發布來源，真正來源 src/app/robots.ts 尚未更新。
+- 修正：真正 robots 產生器依根目錄既有意圖 Allow: / 並列正式 sitemap；新增建置產物回歸測試，舊 out 先明確失敗，再 build 後3項匯出全通過。未更動頁面畫面、權限或資料結構。
+- 還原測試紅燈證據：CI trace 中 restore PATCH 18:01:23.998Z 尚未完成（status=-1），清單 GET 18:01:24.780Z 已送出；測試 click@127 後立即 click@129 切頁。helper 現在等待 trash row 消失（伺服器重讀完成）後才切頁，保留原清單必須1筆斷言。沒有固定 sleep 或放寬重試。
+- 本機 Node24.5/npm ci 鎖檔不變；npm test 型別/內連/37 unit通過，lint0錯誤6既有警告；build及3 export通過。遠端完整含真實測試資料庫、WebKit待PR驗證，通過後合併並追蹤main CI及既有Pages。
+- QA/教學：搜尋引擎入口告示應允許爬取並指向可讀目錄；維護者CI須等還原完成再驗原清單。robots建置產物紅綠已驗；後台透過既有隔離測試專案驗證，不用正式資料。沒有新費用/權限，未觸發新的安全模擬；搜尋引擎收錄時間不在網站控制範圍。備援為靜態app robots檔，推薦沿用現有產生器；公開圖片同步沿用已合併修復。
+- 技能 product-owner-teaching、systematic-debugging、test-driven-development、verification-before-completion。沒有修改UI，不新增前端視覺交付。
+
 # 本輪狀態 — 2026-10-25 修復圖片匯出 CI（分支驗證中）
 
 - 目標：使用者指出 GitHub `robots.txt` 提交紅色叉號。查 run 40177129059 為 `Next architecture CI` 的匯出檢查失敗：首頁引用 `/media/partners/29-greenhope-1792907861092.png`，但該工作流程未像 Pages 部署 run 40177129048 一樣準備圖片。Pages 部署成功、正式圖片 HTTP 200。不得把 Pages 成功誤稱全部檢查成功。
