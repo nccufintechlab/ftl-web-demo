@@ -49,3 +49,21 @@ test("published robots allows crawling and points to the exported sitemap", () =
   assert.equal(sitemap, "https://nccufintechlab.tw/sitemap.xml");
   assert.ok(existsSync(join("out", new URL(sitemap).pathname)));
 });
+
+// Crawling permission in robots.txt alone is insufficient: HTML must allow indexing.
+test("public pages allow indexing while admin pages remain excluded", () => {
+  const publicPages = ["", "about", "projects", "insights", "resources", "events", "contact", "privacy"];
+  const adminPages = ["admin", "admin/admins", "admin/articles", "admin/events", "admin/partners", "admin/projects", "admin/resources", "admin/settings", "admin/trash", "admin/weekly"];
+  for (const [pages, expected] of [[publicPages, ["index", "follow"]], [adminPages, ["noindex", "nofollow"]]]) {
+    for (const page of pages) {
+      const html = readFileSync(join("out", page, "index.html"), "utf8");
+      const tags = [...html.matchAll(/<meta\s[^>]*>/g)].map(([tag]) => tag);
+      const robots = tags.filter((tag) => /name="(?:robots|googlebot)"/i.test(tag));
+      assert.ok(robots.length > 0, `${page || "/"}: missing indexing directive`);
+      for (const tag of robots) {
+        const directives = /content="([^"]*)"/.exec(tag)?.[1].toLowerCase().split(/\s*,\s*/);
+        assert.deepEqual(directives, expected, `${page || "/"}: wrong indexing directive`);
+      }
+    }
+  }
+});

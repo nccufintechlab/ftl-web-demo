@@ -1,3 +1,13 @@
+# 本輪狀態 — 2026-10-26 公開頁 noindex 修復
+
+- 使用者Search Console回報「robots中繼標記偵測noindex」。正式首頁curl HTML證實meta robots=noindex,nofollow，回應沒有X-Robots-Tag。上一輪僅驗robots.txt，漏掉頁面metadata；本輪補齊索引驗收。
+- 分支codex/allow-public-indexing，來源origin/main42e08b5，沿用獨立副本/tmp/ftl-robots-fix-20261026；原工作區未提交內容保留。
+- 修改僅src/app/(site)/layout.tsx共用metadata改index:true/follow:true；admin仍false/false。沒有UI、權限、資料、相依與費用變更。
+- TDD：tests/export/custom-domain.test.mjs新增實際匯出HTML索引檢查，8個公開頁與10個後台頁；舊out在首頁noindex明確紅，修改後build及4 export全綠。npm test型別/連結/37 unit通過、lint0error/6既有warnings；原始本機紀錄/tmp/ftl-index-local-test.log。
+- QA/教學：訪客搜尋公開頁的資格由robots允許抓取+HTML允許收錄共同決定；維護者後台仍noindex（它不是權限保護，登入機制未動）。推薦共用設定避免漏頁，備援逐頁設定維護成本較高。從設定→建置HTML→Pages→Google檢索驗證，不保證實際收錄時間；Search Console歷史結果要與即時測試區分。
+- 遠端PR全測、合併後main全測與原網址驗收待執行；正式QA需檢查全部公開URL及後台代表頁的HTTP標頭與meta，不能只查robots.txt。無畫面改動，不觸發新增UI視覺交付；未變登入/權限/個資，不觸發新的資安模擬。
+- 技能product-owner-teaching、systematic-debugging、test-driven-development、verification-before-completion；沿用本對話已讀詳規。Google官方參考https://developers.google.com/search/docs/crawling-indexing/block-indexing 與 https://support.google.com/webmasters/answer/9012289?hl=zh-Hant 。
+
 # 本輪狀態 — 2026-10-26 真正發布 robots 與還原測試同步
 
 - 工作區 `/tmp/ftl-robots-fix-20261026`，分支 `codex/fix-published-robots`，來源 main `7019c86`；原 site/course-schedule 未提交紀錄及副本完全保留。
