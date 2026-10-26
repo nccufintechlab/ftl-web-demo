@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: "%s ｜ 政大金融科技創新實驗室",
   },
   description: "政大第一個 FinTech 學術社團。金融 × 科技 × 產學 × 實作：業界講座、實務工作坊、英語讀書會、FinTech 週報。",
-  robots: { index: false, follow: false },
+  robots: { index: true, follow: true },
   openGraph: {
     type: "website",
     locale: "zh_TW",
