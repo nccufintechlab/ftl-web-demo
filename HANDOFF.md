@@ -1,3 +1,13 @@
+# 本輪狀態 — 2026-10-28 新增 Canton 成果新聞（待完整 CI／發布）
+
+- 使用者指定政大新聞 24260；首頁社團新聞最前加入2026-10-27報導，中英文標題與摘要、活動合照、圖片來源及原文連結。原有預告保留。來源 https://www.nccu.edu.tw/p/405-1000-24260,c87.php?Lang=zh-tw 。摘要只述活動與提案，未轉載全文或增添投資成效。
+- 隔離工作區 /tmp/ftl-news-24260，分支 codex/canton-news-24260，來源 origin/main d7b035b；site/course-schedule 與前次工作區原有未提交內容保留。
+- 修改 src/components/home/CampusNews.tsx、assets/news/canton-workshop.jpg（來源新聞大合照400×225）。靜態內容依testing-policy不新增瑣碎文字單元測試；未改邏輯、版型、資料結構、權限或外部服務。
+- 已驗：npm test 37 unit、型別/lint/連結通過（6既有lint warnings）；npm run build成功；4 export通過。原始 /tmp/news-{test,build,export}.log。初跑被sandbox監聽限制擋下、套件symlink不被Turbopack允許，改核准環境及同版套件實體副本後成功，未改設定/相依。
+- QA角度：訪客讀最新新聞/切英文/開原文；編輯核對刊登日期、摘要與來源。Playwright真實點擊開政大原文且標題相符；圖片已載入、375px viewport與scrollWidth同為375（直接讀DOM）、console errors 0。沒有正式攻擊測試；本輪不涉及敏感流程。
+- 兩輪截圖 proof/news-24260/round{1,2}-{desktop,mobile}.png（父目錄 /Users/frank/Documents/ChatGPT/ftl-website/proof/news-24260），1280×800/375×812；第一輪中文、第二輪英文。八項：標題/內文層次明確、留白分組清楚、Huninn/Outfit既有字體、藍白配色、卡片對齊、無水平溢出、連結/語言狀態正常（純內容無新增loading/error狀態）、沿用hover微互動未增改動效。兩輪無需修正版型。impeccable detect []。
+- 教學已交付能力/體驗/結構/資料流/設計理由/備援（後台新聞管理較高維護成本）/安全成本/證據/限制：沿用靜態新聞與既有發布流程，無費用權限變更，正式站待CI與發布後驗收。技能 product-owner-teaching、impeccable、emil-design-eng、playwright-cli、verification-before-completion。
+
 # 本輪狀態 — 2026-10-26 公開頁 noindex 修復
 
 - 使用者Search Console回報「robots中繼標記偵測noindex」。正式首頁curl HTML證實meta robots=noindex,nofollow，回應沒有X-Robots-Tag。上一輪僅驗robots.txt，漏掉頁面metadata；本輪補齊索引驗收。

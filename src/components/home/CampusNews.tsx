@@ -2,6 +2,21 @@ import { withBasePath } from "@/lib/site-data";
 
 const news = [
   {
+    id: "24260",
+    date: "2026-10-27",
+    href: "https://www.nccu.edu.tw/p/405-1000-24260,c87.php?Lang=zh-tw",
+    title: "接軌華爾街機構級區塊鏈，探索 Web3 應用",
+    titleEn: "Exploring institutional blockchain and Web3 applications",
+    summary: "Canton Foundation 的 Teagan Buckley 分享機構級區塊鏈實務，社員分組提出基金交割、碳權、供應鏈融資與跨境醫療理賠應用，與業界來賓交流。",
+    summaryEn: "Teagan Buckley of the Canton Foundation shared insights into institutional blockchain. Student teams discussed proposals for fund settlement, carbon credits, supply-chain finance and cross-border medical claims with industry guests.",
+    image: "/assets/news/canton-workshop.jpg",
+    height: 225,
+    alt: "Canton 講座與分組工作坊參與者大合照",
+    credit: "照片：政大商學院金融科技研究中心",
+    creditEn: "Photo: NCCU College of Commerce FinTech Research Center",
+    poster: false,
+  },
+  {
     id: "24166",
     date: "2026-10-16",
     href: "https://www.nccu.edu.tw/p/406-1000-24166,r131.php?Lang=zh-tw",
