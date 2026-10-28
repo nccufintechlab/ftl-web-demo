@@ -1,3 +1,20 @@
+# 本輪狀態 — 2026-10-28 新聞封面指定合影（待發布）
+
+- 使用者指定來賓與社長合影，來源 https://www.nccu.edu.tw/var/file/0/1000/pictures/208/part_24260_8314956_92602.jpg 。新檔 assets/news/canton-guests.jpg，原圖1536×864等比例縮至1200×675；新檔名避免舊快取，原圖片不刪除。CampusNews第一則image/alt更換，照片來源署名保留。
+- 分支codex/canton-news-cover，來源origin/main88b0006；工作區/tmp/ftl-news-24260；前輪未提交HANDOFF收尾一併保留。兩輪桌機1280×800/手機375×812，中英文、人物裁切與照片正常；DOM圖片載入成功，375視口scrollWidth375，console0 errors。proof/news-cover-24260/round{1,2}-{desktop,mobile}.png。
+- 八項自檢：層次、留白、字體、配色、對齊沿用；響應式無溢出；語言狀態正常；無動效修改。impeccable detect []。QA從訪客辨認合影及編輯核對來源角度完成，無本輪缺陷；無敏感流程，不做正式站安全模擬。
+- 本機npm test37 unit/型別/lint/連結、build、4 export通過，/tmp/cover-{test,build,export}.log。靜態內容不另增瑣碎測試；完整CI待PR。教學已交付：獨立圖片檔→既有發布→首頁，較覆蓋舊檔能避免快取，不新增費用/權限，待正式驗收。沿用product-owner-teaching、impeccable、emil-design-eng、playwright-cli、verification-before-completion。
+
+# 本輪狀態 — 2026-10-28 Canton 成果新聞已上線
+
+- 使用者指定新聞24260已加入首頁「社團新聞」第一則：2026-10-27、中英文摘要、活動大合照、照片來源與政大原文連結；保留原有新聞與講座預告。沿用既有靜態卡片，不改UI邏輯、資料結構、權限或費用。
+- 獨立工作區 /tmp/ftl-news-24260，來源d7b035b，分支codex/canton-news-24260，提交ef2420b。PR https://github.com/nccufintechlab/ftl-web-demo/pull/4 已合併，main92c97e0；遠端88b0006為自動內容快照，git merge-base已確認包含本次提交。既有工作區未提交內容保留，沒有強制同步。
+- 分支完整CI40621873265與合併後main完整CI40622745925均success，原始紀錄在 /Users/frank/Documents/ChatGPT/ftl-website/proof/news-24260/{pr-ci,main-ci}.log。npm test、build、4 export及前後台瀏覽器檢查均通過；6既有lint warnings。靜態文案依testing-policy不另寫瑣碎文字unit。初跑sandbox監聽/套件symlink環境問題已排除，未修改設定或相依。
+- 正式部署40622745830 success（head92c97e0），沿用 https://nccufintechlab.tw/#news ，沒有重複觸發。正式Playwright手機中文/桌機英文第一張卡片正確、新圖decode成功naturalWidth400、375px viewport/scrollWidth相同、實際點原文新分頁標題符合來源、console errors/warnings皆0。
+- QA：訪客讀新新聞、切語言、開原文；編輯核對日期/摘要/圖說。兩輪1280×800及375×812截圖 proof/news-24260/round{1,2}-{desktop,mobile}.png，正式live-mobile.png/live-desktop-en.png。八項自評：標題層次/留白/既有字體/藍白配色/對齊/響應式/連結焦點hover與語言狀態/原有動效均正常；無新增動效。impeccable detect []。沒有本輪已證實缺陷或待決產品決策；未測真機iOS，未做正式站安全攻擊（不涉及敏感變更）。
+- 教學交付：靜態剪報資料→既有發布→首頁卡片，採既有方式維護成本最低，備援後台新聞管理需另行開發；來源只摘要實際活動與學生提案，沒有新增成效承諾。技能product-owner-teaching、impeccable、emil-design-eng、playwright-cli、verification-before-completion。
+- 完成實作/驗證/合併/push/部署/正式驗收；本輪預覽服務與專用瀏覽器已關閉。詳細證據 proof/news-24260/verification.md。此收尾紀錄保存在本機交接，避免僅為紀錄再次觸發部署。
+
 # 本輪狀態 — 2026-10-28 新增 Canton 成果新聞（待完整 CI／發布）
 
 - 使用者指定政大新聞 24260；首頁社團新聞最前加入2026-10-27報導，中英文標題與摘要、活動合照、圖片來源及原文連結。原有預告保留。來源 https://www.nccu.edu.tw/p/405-1000-24260,c87.php?Lang=zh-tw 。摘要只述活動與提案，未轉載全文或增添投資成效。
